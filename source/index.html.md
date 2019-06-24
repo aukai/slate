@@ -147,25 +147,25 @@ Lists Addresses
 ```json
 [
   {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   }
 ]
 ```
@@ -184,23 +184,23 @@ Status Code **200**
 |---|---|---|---|---|
 |*anonymous*|[[model.Address](#schemamodel.address)]|false|none|none|
 |» building_name|string|false|none|BuildingName is the name of the building, e.g., TriSeven Building|
-|» country_code|string|false|none|CountryCode abbreviation e.g., JP|
-|» country_name|string|false|none|CountryName e.g., Japan|
+|» country_code|string|false|none|CountryCode abbreviation|
+|» country_name|string|false|none|none|
 |» created_at|string|false|none|none|
 |» deleted_at|string|false|none|none|
-|» district_name|string|false|none|BlockBldgName is the name the block and building number e.g., 5-10|
+|» district_name|string|false|none|BlockBldgName is the name the block and building number|
 |» formatted|string|false|none|Formatted address for display in the target language|
 |» geo_coder|string|false|none|GeoCoder is the system that was used to resolve this address|
 |» geo_coder_ref|string|false|none|GeoCoderRef is the reference within the system used to geocode this Address|
 |» id|integer|false|none|none|
-|» lang|string|false|none|Lang is th language in which the address is registered, e.g., ja_jp, or en_us|
+|» lang|string|false|none|Lang is th language in which the address is registered|
 |» lat|number|false|none|Lat is the GPS latitude|
 |» lng|number|false|none|Lon is the GPS longitude|
-|» machi_name|string|false|none|MachiName is the name of the town, e.g., 浅草|
-|» muni_name|string|false|none|MuniName is the name of the municipality, e.g.,　台東区|
-|» postal_code|string|false|none|PostCode is the local postal code, e.g., 110-0014|
-|» region_code|integer|false|none|RegionCode is the code of the region, e.g., 13|
-|» region_name|string|false|none|RegionName is the name of the region, e.g., 東京都, or 岐阜県|
+|» machi_name|string|false|none|MachiName is the name of the town|
+|» muni_name|string|false|none|MuniName is the name of the municipality|
+|» postal_code|string|false|none|none|
+|» region_code|integer|false|none|RegionCode is the code of the region|
+|» region_name|string|false|none|RegionName is the name of the region|
 |» updated_at|string|false|none|none|
 
 <aside class="warning">
@@ -319,25 +319,25 @@ Create a Address
 
 ```json
 {
-  "building_name": "string",
-  "country_code": "string",
-  "country_name": "string",
-  "created_at": "string",
-  "deleted_at": "string",
-  "district_name": "string",
+  "building_name": "TriSeven Building",
+  "country_code": "JP",
+  "country_name": "Japan",
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
+  "district_name": "5-10",
   "formatted": "string",
   "geo_coder": "string",
   "geo_coder_ref": "string",
   "id": 0,
-  "lang": "string",
+  "lang": "ja_jp",
   "lat": 0,
   "lng": 0,
-  "machi_name": "string",
-  "muni_name": "string",
-  "postal_code": "string",
-  "region_code": 0,
-  "region_name": "string",
-  "updated_at": "string"
+  "machi_name": "浅草",
+  "muni_name": "台東区",
+  "postal_code": "110-0014",
+  "region_code": 13,
+  "region_name": "東京都",
+  "updated_at": "2019-06-18T05:07:22Z"
 }
 ```
 
@@ -353,25 +353,25 @@ Create a Address
 
 ```json
 {
-  "building_name": "string",
-  "country_code": "string",
-  "country_name": "string",
-  "created_at": "string",
-  "deleted_at": "string",
-  "district_name": "string",
+  "building_name": "TriSeven Building",
+  "country_code": "JP",
+  "country_name": "Japan",
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
+  "district_name": "5-10",
   "formatted": "string",
   "geo_coder": "string",
   "geo_coder_ref": "string",
   "id": 0,
-  "lang": "string",
+  "lang": "ja_jp",
   "lat": 0,
   "lng": 0,
-  "machi_name": "string",
-  "muni_name": "string",
-  "postal_code": "string",
-  "region_code": 0,
-  "region_name": "string",
-  "updated_at": "string"
+  "machi_name": "浅草",
+  "muni_name": "台東区",
+  "postal_code": "110-0014",
+  "region_code": 13,
+  "region_name": "東京都",
+  "updated_at": "2019-06-18T05:07:22Z"
 }
 ```
 
@@ -493,25 +493,25 @@ Retrieve a Address
 
 ```json
 {
-  "building_name": "string",
-  "country_code": "string",
-  "country_name": "string",
-  "created_at": "string",
-  "deleted_at": "string",
-  "district_name": "string",
+  "building_name": "TriSeven Building",
+  "country_code": "JP",
+  "country_name": "Japan",
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
+  "district_name": "5-10",
   "formatted": "string",
   "geo_coder": "string",
   "geo_coder_ref": "string",
   "id": 0,
-  "lang": "string",
+  "lang": "ja_jp",
   "lat": 0,
   "lng": 0,
-  "machi_name": "string",
-  "muni_name": "string",
-  "postal_code": "string",
-  "region_code": 0,
-  "region_name": "string",
-  "updated_at": "string"
+  "machi_name": "浅草",
+  "muni_name": "台東区",
+  "postal_code": "110-0014",
+  "region_code": 13,
+  "region_name": "東京都",
+  "updated_at": "2019-06-18T05:07:22Z"
 }
 ```
 
@@ -637,25 +637,25 @@ Update attributes of a Address
 
 ```json
 {
-  "building_name": "string",
-  "country_code": "string",
-  "country_name": "string",
-  "created_at": "string",
-  "deleted_at": "string",
-  "district_name": "string",
+  "building_name": "TriSeven Building",
+  "country_code": "JP",
+  "country_name": "Japan",
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
+  "district_name": "5-10",
   "formatted": "string",
   "geo_coder": "string",
   "geo_coder_ref": "string",
   "id": 0,
-  "lang": "string",
+  "lang": "ja_jp",
   "lat": 0,
   "lng": 0,
-  "machi_name": "string",
-  "muni_name": "string",
-  "postal_code": "string",
-  "region_code": 0,
-  "region_name": "string",
-  "updated_at": "string"
+  "machi_name": "浅草",
+  "muni_name": "台東区",
+  "postal_code": "110-0014",
+  "region_code": 13,
+  "region_name": "東京都",
+  "updated_at": "2019-06-18T05:07:22Z"
 }
 ```
 
@@ -672,25 +672,25 @@ Update attributes of a Address
 
 ```json
 {
-  "building_name": "string",
-  "country_code": "string",
-  "country_name": "string",
-  "created_at": "string",
-  "deleted_at": "string",
-  "district_name": "string",
+  "building_name": "TriSeven Building",
+  "country_code": "JP",
+  "country_name": "Japan",
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
+  "district_name": "5-10",
   "formatted": "string",
   "geo_coder": "string",
   "geo_coder_ref": "string",
   "id": 0,
-  "lang": "string",
+  "lang": "ja_jp",
   "lat": 0,
   "lng": 0,
-  "machi_name": "string",
-  "muni_name": "string",
-  "postal_code": "string",
-  "region_code": 0,
-  "region_name": "string",
-  "updated_at": "string"
+  "machi_name": "浅草",
+  "muni_name": "台東区",
+  "postal_code": "110-0014",
+  "region_code": 13,
+  "region_name": "東京都",
+  "updated_at": "2019-06-18T05:07:22Z"
 }
 ```
 
@@ -818,25 +818,25 @@ Delete a Address by ID
 
 ```json
 {
-  "building_name": "string",
-  "country_code": "string",
-  "country_name": "string",
-  "created_at": "string",
-  "deleted_at": "string",
-  "district_name": "string",
+  "building_name": "TriSeven Building",
+  "country_code": "JP",
+  "country_name": "Japan",
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
+  "district_name": "5-10",
   "formatted": "string",
   "geo_coder": "string",
   "geo_coder_ref": "string",
   "id": 0,
-  "lang": "string",
+  "lang": "ja_jp",
   "lat": 0,
   "lng": 0,
-  "machi_name": "string",
-  "muni_name": "string",
-  "postal_code": "string",
-  "region_code": 0,
-  "region_name": "string",
-  "updated_at": "string"
+  "machi_name": "浅草",
+  "muni_name": "台東区",
+  "postal_code": "110-0014",
+  "region_code": 13,
+  "region_name": "東京都",
+  "updated_at": "2019-06-18T05:07:22Z"
 }
 ```
 
@@ -962,73 +962,73 @@ Lists Companies
 [
   {
     "address_en": {
-      "building_name": "string",
-      "country_code": "string",
-      "country_name": "string",
-      "created_at": "string",
-      "deleted_at": "string",
-      "district_name": "string",
+      "building_name": "TriSeven Building",
+      "country_code": "JP",
+      "country_name": "Japan",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
+      "district_name": "5-10",
       "formatted": "string",
       "geo_coder": "string",
       "geo_coder_ref": "string",
       "id": 0,
-      "lang": "string",
+      "lang": "ja_jp",
       "lat": 0,
       "lng": 0,
-      "machi_name": "string",
-      "muni_name": "string",
-      "postal_code": "string",
-      "region_code": 0,
-      "region_name": "string",
-      "updated_at": "string"
+      "machi_name": "浅草",
+      "muni_name": "台東区",
+      "postal_code": "110-0014",
+      "region_code": 13,
+      "region_name": "東京都",
+      "updated_at": "2019-06-18T05:07:22Z"
     },
     "address_ja": {
-      "building_name": "string",
-      "country_code": "string",
-      "country_name": "string",
-      "created_at": "string",
-      "deleted_at": "string",
-      "district_name": "string",
+      "building_name": "TriSeven Building",
+      "country_code": "JP",
+      "country_name": "Japan",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
+      "district_name": "5-10",
       "formatted": "string",
       "geo_coder": "string",
       "geo_coder_ref": "string",
       "id": 0,
-      "lang": "string",
+      "lang": "ja_jp",
       "lat": 0,
       "lng": 0,
-      "machi_name": "string",
-      "muni_name": "string",
-      "postal_code": "string",
-      "region_code": 0,
-      "region_name": "string",
-      "updated_at": "string"
+      "machi_name": "浅草",
+      "muni_name": "台東区",
+      "postal_code": "110-0014",
+      "region_code": 13,
+      "region_name": "東京都",
+      "updated_at": "2019-06-18T05:07:22Z"
     },
-    "created_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
     "created_by": {
       "avatar": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "email": "string",
       "id": 0,
       "language": "string",
       "name": "string",
       "roles": [
         {
-          "created_at": "string",
-          "deleted_at": "string",
+          "created_at": "2019-06-18T05:07:22Z",
+          "deleted_at": "2019-06-18T05:07:22Z",
           "id": 0,
           "name": "string",
-          "updated_at": "string",
+          "updated_at": "2019-06-18T05:07:22Z",
           "users": [
             null
           ]
         }
       ],
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
-    "deleted_at": "string",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "id": 0,
     "name_en": "string",
     "name_ja": "string",
@@ -1037,40 +1037,40 @@ Lists Companies
       {
         "attribution": "string",
         "company_id": 0,
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
         "ref": "string",
         "ref_type": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "url": "string",
         "warehouse_id": 0
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "updated_by": {
       "avatar": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "email": "string",
       "id": 0,
       "language": "string",
       "name": "string",
       "roles": [
         {
-          "created_at": "string",
-          "deleted_at": "string",
+          "created_at": "2019-06-18T05:07:22Z",
+          "deleted_at": "2019-06-18T05:07:22Z",
           "id": 0,
           "name": "string",
-          "updated_at": "string",
+          "updated_at": "2019-06-18T05:07:22Z",
           "users": [
             null
           ]
         }
       ],
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
     "url": "string"
@@ -1093,23 +1093,23 @@ Status Code **200**
 |*anonymous*|[[model.Company](#schemamodel.company)]|false|none|none|
 |» address_en|[model.Address](#schemamodel.address)|false|none|none|
 |»» building_name|string|false|none|BuildingName is the name of the building, e.g., TriSeven Building|
-|»» country_code|string|false|none|CountryCode abbreviation e.g., JP|
-|»» country_name|string|false|none|CountryName e.g., Japan|
+|»» country_code|string|false|none|CountryCode abbreviation|
+|»» country_name|string|false|none|none|
 |»» created_at|string|false|none|none|
 |»» deleted_at|string|false|none|none|
-|»» district_name|string|false|none|BlockBldgName is the name the block and building number e.g., 5-10|
+|»» district_name|string|false|none|BlockBldgName is the name the block and building number|
 |»» formatted|string|false|none|Formatted address for display in the target language|
 |»» geo_coder|string|false|none|GeoCoder is the system that was used to resolve this address|
 |»» geo_coder_ref|string|false|none|GeoCoderRef is the reference within the system used to geocode this Address|
 |»» id|integer|false|none|none|
-|»» lang|string|false|none|Lang is th language in which the address is registered, e.g., ja_jp, or en_us|
+|»» lang|string|false|none|Lang is th language in which the address is registered|
 |»» lat|number|false|none|Lat is the GPS latitude|
 |»» lng|number|false|none|Lon is the GPS longitude|
-|»» machi_name|string|false|none|MachiName is the name of the town, e.g., 浅草|
-|»» muni_name|string|false|none|MuniName is the name of the municipality, e.g.,　台東区|
-|»» postal_code|string|false|none|PostCode is the local postal code, e.g., 110-0014|
-|»» region_code|integer|false|none|RegionCode is the code of the region, e.g., 13|
-|»» region_name|string|false|none|RegionName is the name of the region, e.g., 東京都, or 岐阜県|
+|»» machi_name|string|false|none|MachiName is the name of the town|
+|»» muni_name|string|false|none|MuniName is the name of the municipality|
+|»» postal_code|string|false|none|none|
+|»» region_code|integer|false|none|RegionCode is the code of the region|
+|»» region_name|string|false|none|RegionName is the name of the region|
 |»» updated_at|string|false|none|none|
 |» address_ja|[model.Address](#schemamodel.address)|false|none|none|
 |» created_at|string|false|none|none|
@@ -1269,73 +1269,73 @@ Create a Company
 ```json
 {
   "address_en": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "address_ja": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
   "name_en": "string",
   "name_ja": "string",
@@ -1344,40 +1344,40 @@ Create a Company
     {
       "attribution": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "id": 0,
       "name": "string",
       "ref": "string",
       "ref_type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "url": "string",
       "warehouse_id": 0
     }
   ],
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "url": "string"
@@ -1397,73 +1397,73 @@ Create a Company
 ```json
 {
   "address_en": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "address_ja": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
   "name_en": "string",
   "name_ja": "string",
@@ -1472,40 +1472,40 @@ Create a Company
     {
       "attribution": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "id": 0,
       "name": "string",
       "ref": "string",
       "ref_type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "url": "string",
       "warehouse_id": 0
     }
   ],
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "url": "string"
@@ -1631,73 +1631,73 @@ Retrieve a Company
 ```json
 {
   "address_en": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "address_ja": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
   "name_en": "string",
   "name_ja": "string",
@@ -1706,40 +1706,40 @@ Retrieve a Company
     {
       "attribution": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "id": 0,
       "name": "string",
       "ref": "string",
       "ref_type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "url": "string",
       "warehouse_id": 0
     }
   ],
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "url": "string"
@@ -1869,73 +1869,73 @@ Update attributes of a Company
 ```json
 {
   "address_en": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "address_ja": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
   "name_en": "string",
   "name_ja": "string",
@@ -1944,40 +1944,40 @@ Update attributes of a Company
     {
       "attribution": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "id": 0,
       "name": "string",
       "ref": "string",
       "ref_type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "url": "string",
       "warehouse_id": 0
     }
   ],
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "url": "string"
@@ -1998,73 +1998,73 @@ Update attributes of a Company
 ```json
 {
   "address_en": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "address_ja": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
   "name_en": "string",
   "name_ja": "string",
@@ -2073,40 +2073,40 @@ Update attributes of a Company
     {
       "attribution": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "id": 0,
       "name": "string",
       "ref": "string",
       "ref_type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "url": "string",
       "warehouse_id": 0
     }
   ],
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "url": "string"
@@ -2238,73 +2238,73 @@ Delete a Company by ID
 ```json
 {
   "address_en": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "address_ja": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
   "name_en": "string",
   "name_ja": "string",
@@ -2313,40 +2313,40 @@ Delete a Company by ID
     {
       "attribution": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "id": 0,
       "name": "string",
       "ref": "string",
       "ref_type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "url": "string",
       "warehouse_id": 0
     }
   ],
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "url": "string"
@@ -2479,88 +2479,88 @@ Provides a list of Warehouse objects  associated with a company
 [
   {
     "address_en": {
-      "building_name": "string",
-      "country_code": "string",
-      "country_name": "string",
-      "created_at": "string",
-      "deleted_at": "string",
-      "district_name": "string",
+      "building_name": "TriSeven Building",
+      "country_code": "JP",
+      "country_name": "Japan",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
+      "district_name": "5-10",
       "formatted": "string",
       "geo_coder": "string",
       "geo_coder_ref": "string",
       "id": 0,
-      "lang": "string",
+      "lang": "ja_jp",
       "lat": 0,
       "lng": 0,
-      "machi_name": "string",
-      "muni_name": "string",
-      "postal_code": "string",
-      "region_code": 0,
-      "region_name": "string",
-      "updated_at": "string"
+      "machi_name": "浅草",
+      "muni_name": "台東区",
+      "postal_code": "110-0014",
+      "region_code": 13,
+      "region_name": "東京都",
+      "updated_at": "2019-06-18T05:07:22Z"
     },
     "address_ja": {
-      "building_name": "string",
-      "country_code": "string",
-      "country_name": "string",
-      "created_at": "string",
-      "deleted_at": "string",
-      "district_name": "string",
+      "building_name": "TriSeven Building",
+      "country_code": "JP",
+      "country_name": "Japan",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
+      "district_name": "5-10",
       "formatted": "string",
       "geo_coder": "string",
       "geo_coder_ref": "string",
       "id": 0,
-      "lang": "string",
+      "lang": "ja_jp",
       "lat": 0,
       "lng": 0,
-      "machi_name": "string",
-      "muni_name": "string",
-      "postal_code": "string",
-      "region_code": 0,
-      "region_name": "string",
-      "updated_at": "string"
+      "machi_name": "浅草",
+      "muni_name": "台東区",
+      "postal_code": "110-0014",
+      "region_code": 13,
+      "region_name": "東京都",
+      "updated_at": "2019-06-18T05:07:22Z"
     },
     "attrs": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "desc_en": "string",
         "desc_ja": "string",
         "id": 0,
         "key": "string",
         "type": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "value_en": "string",
         "value_ja": "string"
       }
     ],
     "company_id": 0,
-    "created_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
     "created_by": {
       "avatar": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "email": "string",
       "id": 0,
       "language": "string",
       "name": "string",
       "roles": [
         {
-          "created_at": "string",
-          "deleted_at": "string",
+          "created_at": "2019-06-18T05:07:22Z",
+          "deleted_at": "2019-06-18T05:07:22Z",
           "id": 0,
           "name": "string",
-          "updated_at": "string",
+          "updated_at": "2019-06-18T05:07:22Z",
           "users": [
             null
           ]
         }
       ],
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
-    "deleted_at": "string",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "id": 0,
     "name_en": "string",
     "name_ja": "string",
@@ -2571,42 +2571,42 @@ Provides a list of Warehouse objects  associated with a company
       {
         "attribution": "string",
         "company_id": 0,
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
         "ref": "string",
         "ref_type": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "url": "string",
         "warehouse_id": 0
       }
     ],
     "sqmtr": 0,
     "type": "string",
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "updated_by": {
       "avatar": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "email": "string",
       "id": 0,
       "language": "string",
       "name": "string",
       "roles": [
         {
-          "created_at": "string",
-          "deleted_at": "string",
+          "created_at": "2019-06-18T05:07:22Z",
+          "deleted_at": "2019-06-18T05:07:22Z",
           "id": 0,
           "name": "string",
-          "updated_at": "string",
+          "updated_at": "2019-06-18T05:07:22Z",
           "users": [
             null
           ]
         }
       ],
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
     "url": "string"
@@ -2629,23 +2629,23 @@ Status Code **200**
 |*anonymous*|[[model.Warehouse](#schemamodel.warehouse)]|false|none|none|
 |» address_en|[model.Address](#schemamodel.address)|false|none|none|
 |»» building_name|string|false|none|BuildingName is the name of the building, e.g., TriSeven Building|
-|»» country_code|string|false|none|CountryCode abbreviation e.g., JP|
-|»» country_name|string|false|none|CountryName e.g., Japan|
+|»» country_code|string|false|none|CountryCode abbreviation|
+|»» country_name|string|false|none|none|
 |»» created_at|string|false|none|none|
 |»» deleted_at|string|false|none|none|
-|»» district_name|string|false|none|BlockBldgName is the name the block and building number e.g., 5-10|
+|»» district_name|string|false|none|BlockBldgName is the name the block and building number|
 |»» formatted|string|false|none|Formatted address for display in the target language|
 |»» geo_coder|string|false|none|GeoCoder is the system that was used to resolve this address|
 |»» geo_coder_ref|string|false|none|GeoCoderRef is the reference within the system used to geocode this Address|
 |»» id|integer|false|none|none|
-|»» lang|string|false|none|Lang is th language in which the address is registered, e.g., ja_jp, or en_us|
+|»» lang|string|false|none|Lang is th language in which the address is registered|
 |»» lat|number|false|none|Lat is the GPS latitude|
 |»» lng|number|false|none|Lon is the GPS longitude|
-|»» machi_name|string|false|none|MachiName is the name of the town, e.g., 浅草|
-|»» muni_name|string|false|none|MuniName is the name of the municipality, e.g.,　台東区|
-|»» postal_code|string|false|none|PostCode is the local postal code, e.g., 110-0014|
-|»» region_code|integer|false|none|RegionCode is the code of the region, e.g., 13|
-|»» region_name|string|false|none|RegionName is the name of the region, e.g., 東京都, or 岐阜県|
+|»» machi_name|string|false|none|MachiName is the name of the town|
+|»» muni_name|string|false|none|MuniName is the name of the municipality|
+|»» postal_code|string|false|none|none|
+|»» region_code|integer|false|none|RegionCode is the code of the region|
+|»» region_name|string|false|none|RegionName is the name of the region|
 |»» updated_at|string|false|none|none|
 |» address_ja|[model.Address](#schemamodel.address)|false|none|none|
 |» attrs|[[model.WarehouseAttr](#schemamodel.warehouseattr)]|false|none|none|
@@ -2823,69 +2823,69 @@ Lists Networks
   {
     "comment": "string",
     "company_id": 0,
-    "created_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
     "created_by": {
       "avatar": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "email": "string",
       "id": 0,
       "language": "string",
       "name": "string",
       "roles": [
         {
-          "created_at": "string",
-          "deleted_at": "string",
+          "created_at": "2019-06-18T05:07:22Z",
+          "deleted_at": "2019-06-18T05:07:22Z",
           "id": 0,
           "name": "string",
-          "updated_at": "string",
+          "updated_at": "2019-06-18T05:07:22Z",
           "users": [
             null
           ]
         }
       ],
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
-    "deleted_at": "string",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "file": {
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "dir": "string",
-      "ext": "string",
+      "ext": "png",
       "filename": "string",
-      "id": 0,
-      "mime_type": "string",
-      "ref": "string",
-      "updated_at": "string",
-      "url": "string"
+      "id": 1,
+      "mime_type": "image/png",
+      "ref": "df6301cfb58750fd8707611cea13e9b3",
+      "updated_at": "2019-06-18T05:07:22Z",
+      "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
     },
     "id": 0,
     "status": "string",
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "updated_by": {
       "avatar": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "email": "string",
       "id": 0,
       "language": "string",
       "name": "string",
       "roles": [
         {
-          "created_at": "string",
-          "deleted_at": "string",
+          "created_at": "2019-06-18T05:07:22Z",
+          "deleted_at": "2019-06-18T05:07:22Z",
           "id": 0,
           "name": "string",
-          "updated_at": "string",
+          "updated_at": "2019-06-18T05:07:22Z",
           "users": [
             null
           ]
         }
       ],
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
     "warehouse_id": 0
@@ -3065,69 +3065,69 @@ Create a Network
 {
   "comment": "string",
   "company_id": 0,
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "file": {
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "dir": "string",
-    "ext": "string",
+    "ext": "png",
     "filename": "string",
-    "id": 0,
-    "mime_type": "string",
-    "ref": "string",
-    "updated_at": "string",
-    "url": "string"
+    "id": 1,
+    "mime_type": "image/png",
+    "ref": "df6301cfb58750fd8707611cea13e9b3",
+    "updated_at": "2019-06-18T05:07:22Z",
+    "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
   },
   "id": 0,
   "status": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "warehouse_id": 0
@@ -3148,69 +3148,69 @@ Create a Network
 {
   "comment": "string",
   "company_id": 0,
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "file": {
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "dir": "string",
-    "ext": "string",
+    "ext": "png",
     "filename": "string",
-    "id": 0,
-    "mime_type": "string",
-    "ref": "string",
-    "updated_at": "string",
-    "url": "string"
+    "id": 1,
+    "mime_type": "image/png",
+    "ref": "df6301cfb58750fd8707611cea13e9b3",
+    "updated_at": "2019-06-18T05:07:22Z",
+    "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
   },
   "id": 0,
   "status": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "warehouse_id": 0
@@ -3339,69 +3339,69 @@ Retrieve a Network
 {
   "comment": "string",
   "company_id": 0,
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "file": {
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "dir": "string",
-    "ext": "string",
+    "ext": "png",
     "filename": "string",
-    "id": 0,
-    "mime_type": "string",
-    "ref": "string",
-    "updated_at": "string",
-    "url": "string"
+    "id": 1,
+    "mime_type": "image/png",
+    "ref": "df6301cfb58750fd8707611cea13e9b3",
+    "updated_at": "2019-06-18T05:07:22Z",
+    "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
   },
   "id": 0,
   "status": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "warehouse_id": 0
@@ -3534,69 +3534,69 @@ Update attributes of a Network
 {
   "comment": "string",
   "company_id": 0,
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "file": {
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "dir": "string",
-    "ext": "string",
+    "ext": "png",
     "filename": "string",
-    "id": 0,
-    "mime_type": "string",
-    "ref": "string",
-    "updated_at": "string",
-    "url": "string"
+    "id": 1,
+    "mime_type": "image/png",
+    "ref": "df6301cfb58750fd8707611cea13e9b3",
+    "updated_at": "2019-06-18T05:07:22Z",
+    "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
   },
   "id": 0,
   "status": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "warehouse_id": 0
@@ -3618,69 +3618,69 @@ Update attributes of a Network
 {
   "comment": "string",
   "company_id": 0,
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "file": {
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "dir": "string",
-    "ext": "string",
+    "ext": "png",
     "filename": "string",
-    "id": 0,
-    "mime_type": "string",
-    "ref": "string",
-    "updated_at": "string",
-    "url": "string"
+    "id": 1,
+    "mime_type": "image/png",
+    "ref": "df6301cfb58750fd8707611cea13e9b3",
+    "updated_at": "2019-06-18T05:07:22Z",
+    "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
   },
   "id": 0,
   "status": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "warehouse_id": 0
@@ -3815,69 +3815,69 @@ Delete a Network by ID
 {
   "comment": "string",
   "company_id": 0,
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "file": {
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "dir": "string",
-    "ext": "string",
+    "ext": "png",
     "filename": "string",
-    "id": 0,
-    "mime_type": "string",
-    "ref": "string",
-    "updated_at": "string",
-    "url": "string"
+    "id": 1,
+    "mime_type": "image/png",
+    "ref": "df6301cfb58750fd8707611cea13e9b3",
+    "updated_at": "2019-06-18T05:07:22Z",
+    "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
   },
   "id": 0,
   "status": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "warehouse_id": 0
@@ -3889,6 +3889,1712 @@ Delete a Network by ID
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The deleted network|[model.NetworkAssoc](#schemamodel.networkassoc)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
+</aside>
+
+<h1 id="aukai-core-api-file">file</h1>
+
+## Get File contents by Reference
+
+> Code samples
+
+```http
+GET http://aukai.io/ref/{ref}/file HTTP/1.1
+Host: aukai.io
+Accept: image/jpeg
+
+```
+
+```shell
+# You can also use wget
+curl -X GET http://aukai.io/ref/{ref}/file \
+  -H 'Accept: image/jpeg'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"image/jpeg"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://aukai.io/ref/{ref}/file", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Accept':'image/jpeg'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/ref/{ref}/file',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'image/jpeg'
+}
+
+r = requests.get('http://aukai.io/ref/{ref}/file', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'image/jpeg'
+}
+
+result = RestClient.get 'http://aukai.io/ref/{ref}/file',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`GET /ref/{ref}/file`
+
+Retrieve the contents of a StoredFile by the associated reference.
+
+> Example responses
+
+> 200 Response
+
+<h3 id="get-file-contents-by-reference-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|the raw contents of the file|string|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## List Stored Files
+
+> Code samples
+
+```http
+GET http://aukai.io/stored-file/ HTTP/1.1
+Host: aukai.io
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X GET http://aukai.io/stored-file/ \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer JWT'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer JWT"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://aukai.io/stored-file/", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer JWT'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/stored-file/',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer JWT'
+}
+
+r = requests.get('http://aukai.io/stored-file/', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer JWT'
+}
+
+result = RestClient.get 'http://aukai.io/stored-file/',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`GET /stored-file/`
+
+Lists Stored Files
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "dir": "string",
+    "ext": "png",
+    "filename": "string",
+    "id": 1,
+    "mime_type": "image/png",
+    "ref": "df6301cfb58750fd8707611cea13e9b3",
+    "updated_at": "2019-06-18T05:07:22Z",
+    "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
+  }
+]
+```
+
+<h3 id="list-stored-files-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|Inline|
+
+<h3 id="list-stored-files-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[[storedfile.File](#schemastoredfile.file)]|false|none|none|
+|» created_at|string|false|none|none|
+|» deleted_at|string|false|none|none|
+|» dir|string|false|none|Dir is the company ID|
+|» ext|string|false|none|Ext is the extension for the file if it's written to a filesystem|
+|» filename|string|true|none|Filename is the name given to the file, it's usually the same as Ref|
+|» id|integer|false|none|none|
+|» mime_type|string|false|none|MimeType of the file [usually auto detected]|
+|» ref|string|true|none|Ref is the key used to retrieve the file from our object store|
+|» updated_at|string|false|none|none|
+|» url|string|false|none|URL for external systems to use to access the file|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
+</aside>
+
+## Create Stored File
+
+> Code samples
+
+```http
+POST http://aukai.io/stored-file/ HTTP/1.1
+Host: aukai.io
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X POST http://aukai.io/stored-file/ \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer JWT'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer JWT"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "http://aukai.io/stored-file/", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'Authorization':'Bearer JWT'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/stored-file/',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer JWT'
+}
+
+r = requests.post('http://aukai.io/stored-file/', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer JWT'
+}
+
+result = RestClient.post 'http://aukai.io/stored-file/',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`POST /stored-file/`
+
+Create a Stored File
+
+> Body parameter
+
+```json
+{
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
+  "dir": "string",
+  "ext": "png",
+  "filename": "string",
+  "id": 1,
+  "mime_type": "image/png",
+  "ref": "df6301cfb58750fd8707611cea13e9b3",
+  "updated_at": "2019-06-18T05:07:22Z",
+  "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
+}
+```
+
+<h3 id="create-stored-file-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[storedfile.File](#schemastoredfile.file)|true|the file to create|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
+  "dir": "string",
+  "ext": "png",
+  "filename": "string",
+  "id": 1,
+  "mime_type": "image/png",
+  "ref": "df6301cfb58750fd8707611cea13e9b3",
+  "updated_at": "2019-06-18T05:07:22Z",
+  "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
+}
+```
+
+<h3 id="create-stored-file-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[storedfile.File](#schemastoredfile.file)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
+</aside>
+
+## Get File contents by ID
+
+> Code samples
+
+```http
+GET http://aukai.io/stored-file/{id} HTTP/1.1
+Host: aukai.io
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X GET http://aukai.io/stored-file/{id} \
+  -H 'Accept: application/json'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://aukai.io/stored-file/{id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/stored-file/{id}',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://aukai.io/stored-file/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'http://aukai.io/stored-file/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`GET /stored-file/{id}`
+
+Retrieve the contents of a StoredFile by the associated ID.
+
+> Example responses
+
+> 200 Response
+
+```json
+"string"
+```
+
+<h3 id="get-file-contents-by-id-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|the raw contents fo the file|string|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## Update File
+
+> Code samples
+
+```http
+POST http://aukai.io/stored-file/{id} HTTP/1.1
+Host: aukai.io
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X POST http://aukai.io/stored-file/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer JWT'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer JWT"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "http://aukai.io/stored-file/{id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'Authorization':'Bearer JWT'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/stored-file/{id}',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer JWT'
+}
+
+r = requests.post('http://aukai.io/stored-file/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer JWT'
+}
+
+result = RestClient.post 'http://aukai.io/stored-file/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`POST /stored-file/{id}`
+
+Update attributes of a File
+
+> Body parameter
+
+```json
+{
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
+  "dir": "string",
+  "ext": "png",
+  "filename": "string",
+  "id": 1,
+  "mime_type": "image/png",
+  "ref": "df6301cfb58750fd8707611cea13e9b3",
+  "updated_at": "2019-06-18T05:07:22Z",
+  "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
+}
+```
+
+<h3 id="update-file-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|integer|true|The file ID|
+|body|body|[storedfile.File](#schemastoredfile.file)|true|attributes to change|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
+  "dir": "string",
+  "ext": "png",
+  "filename": "string",
+  "id": 1,
+  "mime_type": "image/png",
+  "ref": "df6301cfb58750fd8707611cea13e9b3",
+  "updated_at": "2019-06-18T05:07:22Z",
+  "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
+}
+```
+
+<h3 id="update-file-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[storedfile.File](#schemastoredfile.file)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
+</aside>
+
+## Delete File
+
+> Code samples
+
+```http
+DELETE http://aukai.io/stored-file/{id} HTTP/1.1
+Host: aukai.io
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X DELETE http://aukai.io/stored-file/{id} \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer JWT'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer JWT"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "http://aukai.io/stored-file/{id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer JWT'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/stored-file/{id}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer JWT'
+}
+
+r = requests.delete('http://aukai.io/stored-file/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer JWT'
+}
+
+result = RestClient.delete 'http://aukai.io/stored-file/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`DELETE /stored-file/{id}`
+
+Delete a File by ID
+
+<h3 id="delete-file-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|integer|true|The file ID|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
+  "dir": "string",
+  "ext": "png",
+  "filename": "string",
+  "id": 1,
+  "mime_type": "image/png",
+  "ref": "df6301cfb58750fd8707611cea13e9b3",
+  "updated_at": "2019-06-18T05:07:22Z",
+  "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
+}
+```
+
+<h3 id="delete-file-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The deleted file|[storedfile.File](#schemastoredfile.file)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
+</aside>
+
+<h1 id="aukai-core-api-role">role</h1>
+
+## List Roles
+
+> Code samples
+
+```http
+GET http://aukai.io/roles/ HTTP/1.1
+Host: aukai.io
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X GET http://aukai.io/roles/ \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer JWT'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer JWT"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://aukai.io/roles/", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer JWT'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/roles/',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer JWT'
+}
+
+r = requests.get('http://aukai.io/roles/', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer JWT'
+}
+
+result = RestClient.get 'http://aukai.io/roles/',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`GET /roles/`
+
+List Role names
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  "string"
+]
+```
+
+<h3 id="list-roles-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|e.g., 'admin', 'staff', 'user', 'guest'|Inline|
+
+<h3 id="list-roles-responseschema">Response Schema</h3>
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
+</aside>
+
+<h1 id="aukai-core-api-user">user</h1>
+
+## Get User
+
+> Code samples
+
+```http
+GET http://aukai.io/user/?id=0&username=string&email=string HTTP/1.1
+Host: aukai.io
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X GET http://aukai.io/user/?id=0&username=string&email=string \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer JWT'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer JWT"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://aukai.io/user/", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer JWT'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/user/',
+  method: 'get',
+  data: '?id=0&username=string&email=string',
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer JWT'
+}
+
+r = requests.get('http://aukai.io/user/', params={
+  'id': '0',  'username': 'string',  'email': 'string'
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer JWT'
+}
+
+result = RestClient.get 'http://aukai.io/user/',
+  params: {
+  'id' => 'integer',
+'username' => 'string',
+'email' => 'string'
+}, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`GET /user/`
+
+Retrieve a User, by one of its paramters: id, username, or email
+
+<h3 id="get-user-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|query|integer|true|User ID|
+|username|query|string|true|Username|
+|email|query|string|true|Email|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "avatar": "string",
+  "company_id": 0,
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
+  "email": "string",
+  "id": 0,
+  "language": "string",
+  "name": "string",
+  "roles": [
+    {
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
+      "id": 0,
+      "name": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
+      "users": [
+        null
+      ]
+    }
+  ],
+  "updated_at": "2019-06-18T05:07:22Z",
+  "username": "string"
+}
+```
+
+<h3 id="get-user-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[model.User](#schemamodel.user)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
+</aside>
+
+## List Auth User Casbin Roles
+
+> Code samples
+
+```http
+GET http://aukai.io/user/casbin HTTP/1.1
+Host: aukai.io
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X GET http://aukai.io/user/casbin \
+  -H 'Accept: application/json'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://aukai.io/user/casbin", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/user/casbin',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://aukai.io/user/casbin', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'http://aukai.io/user/casbin',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`GET /user/casbin`
+
+Provides list of Casbin roles for the authenticated user
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  "string"
+]
+```
+
+<h3 id="list-auth-user-casbin-roles-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|Inline|
+
+<h3 id="list-auth-user-casbin-roles-responseschema">Response Schema</h3>
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## Auth User Information
+
+> Code samples
+
+```http
+GET http://aukai.io/user/info HTTP/1.1
+Host: aukai.io
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X GET http://aukai.io/user/info \
+  -H 'Accept: application/json'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://aukai.io/user/info", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/user/info',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://aukai.io/user/info', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'http://aukai.io/user/info',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`GET /user/info`
+
+Provides information about the authenticated user
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "avatar": "string",
+  "company_id": 0,
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
+  "email": "string",
+  "id": 0,
+  "language": "string",
+  "name": "string",
+  "roles": [
+    {
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
+      "id": 0,
+      "name": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
+      "users": [
+        null
+      ]
+    }
+  ],
+  "updated_at": "2019-06-18T05:07:22Z",
+  "username": "string"
+}
+```
+
+<h3 id="auth-user-information-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[model.User](#schemamodel.user)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## List Auth User Roles
+
+> Code samples
+
+```http
+GET http://aukai.io/user/roles HTTP/1.1
+Host: aukai.io
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X GET http://aukai.io/user/roles \
+  -H 'Accept: application/json'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://aukai.io/user/roles", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/user/roles',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://aukai.io/user/roles', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'http://aukai.io/user/roles',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`GET /user/roles`
+
+Provides list of roles for the authenticated user
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "id": 0,
+    "name": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
+    "users": [
+      {
+        "avatar": "string",
+        "company_id": 0,
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
+        "email": "string",
+        "id": 0,
+        "language": "string",
+        "name": "string",
+        "roles": [
+          null
+        ],
+        "updated_at": "2019-06-18T05:07:22Z",
+        "username": "string"
+      }
+    ]
+  }
+]
+```
+
+<h3 id="list-auth-user-roles-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|Inline|
+
+<h3 id="list-auth-user-roles-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[[model.Role](#schemamodel.role)]|false|none|none|
+|» created_at|string|false|none|none|
+|» deleted_at|string|false|none|none|
+|» id|integer|false|none|none|
+|» name|string|true|none|none|
+|» updated_at|string|false|none|none|
+|» users|[[model.User](#schemamodel.user)]|false|none|none|
+|»» avatar|string|false|none|none|
+|»» company_id|integer|false|none|none|
+|»» created_at|string|false|none|none|
+|»» deleted_at|string|false|none|none|
+|»» email|string|true|none|none|
+|»» id|integer|false|none|none|
+|»» language|string|false|none|none|
+|»» name|string|true|none|none|
+|»» roles|[[model.Role](#schemamodel.role)]|false|none|none|
+|»» updated_at|string|false|none|none|
+|»» username|string|true|none|none|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## List Users
+
+> Code samples
+
+```http
+GET http://aukai.io/users/ HTTP/1.1
+Host: aukai.io
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X GET http://aukai.io/users/ \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer JWT'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer JWT"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://aukai.io/users/", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer JWT'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/users/',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer JWT'
+}
+
+r = requests.get('http://aukai.io/users/', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer JWT'
+}
+
+result = RestClient.get 'http://aukai.io/users/',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`GET /users/`
+
+Lists Users
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "avatar": "string",
+    "company_id": 0,
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "email": "string",
+    "id": 0,
+    "language": "string",
+    "name": "string",
+    "roles": [
+      {
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
+        "id": 0,
+        "name": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
+        "users": [
+          null
+        ]
+      }
+    ],
+    "updated_at": "2019-06-18T05:07:22Z",
+    "username": "string"
+  }
+]
+```
+
+<h3 id="list-users-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|Inline|
+
+<h3 id="list-users-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[[model.User](#schemamodel.user)]|false|none|none|
+|» avatar|string|false|none|none|
+|» company_id|integer|false|none|none|
+|» created_at|string|false|none|none|
+|» deleted_at|string|false|none|none|
+|» email|string|true|none|none|
+|» id|integer|false|none|none|
+|» language|string|false|none|none|
+|» name|string|true|none|none|
+|» roles|[[model.Role](#schemamodel.role)]|false|none|none|
+|»» created_at|string|false|none|none|
+|»» deleted_at|string|false|none|none|
+|»» id|integer|false|none|none|
+|»» name|string|true|none|none|
+|»» updated_at|string|false|none|none|
+|»» users|[[model.User](#schemamodel.user)]|false|none|none|
+|» updated_at|string|false|none|none|
+|» username|string|true|none|none|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -4001,13 +5707,13 @@ also be included.
 
 ```json
 {
-  "branch": "string",
-  "date": "string",
+  "branch": "master",
+  "date": "2019-06-19T03:20:26Z",
   "domains": [
-    "string"
+    "['https://aukai.io']"
   ],
-  "uptime": "string",
-  "version": "string"
+  "uptime": "27h14m37.809030294s",
+  "version": "1.0.0"
 }
 ```
 
@@ -4131,14 +5837,14 @@ Lists WarehouseAttrs
 ```json
 [
   {
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "desc_en": "string",
     "desc_ja": "string",
     "id": 0,
     "key": "string",
     "type": "string",
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "value_en": "string",
     "value_ja": "string"
   }
@@ -4285,14 +5991,14 @@ Create a WarehouseAttr
 
 ```json
 {
-  "created_at": "string",
-  "deleted_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "desc_en": "string",
   "desc_ja": "string",
   "id": 0,
   "key": "string",
   "type": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "value_en": "string",
   "value_ja": "string"
 }
@@ -4310,14 +6016,14 @@ Create a WarehouseAttr
 
 ```json
 {
-  "created_at": "string",
-  "deleted_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "desc_en": "string",
   "desc_ja": "string",
   "id": 0,
   "key": "string",
   "type": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "value_en": "string",
   "value_ja": "string"
 }
@@ -4441,14 +6147,14 @@ Retrieve a WarehouseAttr
 
 ```json
 {
-  "created_at": "string",
-  "deleted_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "desc_en": "string",
   "desc_ja": "string",
   "id": 0,
   "key": "string",
   "type": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "value_en": "string",
   "value_ja": "string"
 }
@@ -4576,14 +6282,14 @@ Update attributes of a WarehouseAttr
 
 ```json
 {
-  "created_at": "string",
-  "deleted_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "desc_en": "string",
   "desc_ja": "string",
   "id": 0,
   "key": "string",
   "type": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "value_en": "string",
   "value_ja": "string"
 }
@@ -4602,14 +6308,14 @@ Update attributes of a WarehouseAttr
 
 ```json
 {
-  "created_at": "string",
-  "deleted_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "desc_en": "string",
   "desc_ja": "string",
   "id": 0,
   "key": "string",
   "type": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "value_en": "string",
   "value_ja": "string"
 }
@@ -4739,14 +6445,14 @@ Delete a WarehouseAttr by ID
 
 ```json
 {
-  "created_at": "string",
-  "deleted_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "desc_en": "string",
   "desc_ja": "string",
   "id": 0,
   "key": "string",
   "type": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "value_en": "string",
   "value_ja": "string"
 }
@@ -4876,88 +6582,88 @@ Lists Warehouses
 [
   {
     "address_en": {
-      "building_name": "string",
-      "country_code": "string",
-      "country_name": "string",
-      "created_at": "string",
-      "deleted_at": "string",
-      "district_name": "string",
+      "building_name": "TriSeven Building",
+      "country_code": "JP",
+      "country_name": "Japan",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
+      "district_name": "5-10",
       "formatted": "string",
       "geo_coder": "string",
       "geo_coder_ref": "string",
       "id": 0,
-      "lang": "string",
+      "lang": "ja_jp",
       "lat": 0,
       "lng": 0,
-      "machi_name": "string",
-      "muni_name": "string",
-      "postal_code": "string",
-      "region_code": 0,
-      "region_name": "string",
-      "updated_at": "string"
+      "machi_name": "浅草",
+      "muni_name": "台東区",
+      "postal_code": "110-0014",
+      "region_code": 13,
+      "region_name": "東京都",
+      "updated_at": "2019-06-18T05:07:22Z"
     },
     "address_ja": {
-      "building_name": "string",
-      "country_code": "string",
-      "country_name": "string",
-      "created_at": "string",
-      "deleted_at": "string",
-      "district_name": "string",
+      "building_name": "TriSeven Building",
+      "country_code": "JP",
+      "country_name": "Japan",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
+      "district_name": "5-10",
       "formatted": "string",
       "geo_coder": "string",
       "geo_coder_ref": "string",
       "id": 0,
-      "lang": "string",
+      "lang": "ja_jp",
       "lat": 0,
       "lng": 0,
-      "machi_name": "string",
-      "muni_name": "string",
-      "postal_code": "string",
-      "region_code": 0,
-      "region_name": "string",
-      "updated_at": "string"
+      "machi_name": "浅草",
+      "muni_name": "台東区",
+      "postal_code": "110-0014",
+      "region_code": 13,
+      "region_name": "東京都",
+      "updated_at": "2019-06-18T05:07:22Z"
     },
     "attrs": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "desc_en": "string",
         "desc_ja": "string",
         "id": 0,
         "key": "string",
         "type": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "value_en": "string",
         "value_ja": "string"
       }
     ],
     "company_id": 0,
-    "created_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
     "created_by": {
       "avatar": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "email": "string",
       "id": 0,
       "language": "string",
       "name": "string",
       "roles": [
         {
-          "created_at": "string",
-          "deleted_at": "string",
+          "created_at": "2019-06-18T05:07:22Z",
+          "deleted_at": "2019-06-18T05:07:22Z",
           "id": 0,
           "name": "string",
-          "updated_at": "string",
+          "updated_at": "2019-06-18T05:07:22Z",
           "users": [
             null
           ]
         }
       ],
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
-    "deleted_at": "string",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "id": 0,
     "name_en": "string",
     "name_ja": "string",
@@ -4968,42 +6674,42 @@ Lists Warehouses
       {
         "attribution": "string",
         "company_id": 0,
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
         "ref": "string",
         "ref_type": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "url": "string",
         "warehouse_id": 0
       }
     ],
     "sqmtr": 0,
     "type": "string",
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "updated_by": {
       "avatar": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "email": "string",
       "id": 0,
       "language": "string",
       "name": "string",
       "roles": [
         {
-          "created_at": "string",
-          "deleted_at": "string",
+          "created_at": "2019-06-18T05:07:22Z",
+          "deleted_at": "2019-06-18T05:07:22Z",
           "id": 0,
           "name": "string",
-          "updated_at": "string",
+          "updated_at": "2019-06-18T05:07:22Z",
           "users": [
             null
           ]
         }
       ],
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
     "url": "string"
@@ -5026,23 +6732,23 @@ Status Code **200**
 |*anonymous*|[[model.Warehouse](#schemamodel.warehouse)]|false|none|none|
 |» address_en|[model.Address](#schemamodel.address)|false|none|none|
 |»» building_name|string|false|none|BuildingName is the name of the building, e.g., TriSeven Building|
-|»» country_code|string|false|none|CountryCode abbreviation e.g., JP|
-|»» country_name|string|false|none|CountryName e.g., Japan|
+|»» country_code|string|false|none|CountryCode abbreviation|
+|»» country_name|string|false|none|none|
 |»» created_at|string|false|none|none|
 |»» deleted_at|string|false|none|none|
-|»» district_name|string|false|none|BlockBldgName is the name the block and building number e.g., 5-10|
+|»» district_name|string|false|none|BlockBldgName is the name the block and building number|
 |»» formatted|string|false|none|Formatted address for display in the target language|
 |»» geo_coder|string|false|none|GeoCoder is the system that was used to resolve this address|
 |»» geo_coder_ref|string|false|none|GeoCoderRef is the reference within the system used to geocode this Address|
 |»» id|integer|false|none|none|
-|»» lang|string|false|none|Lang is th language in which the address is registered, e.g., ja_jp, or en_us|
+|»» lang|string|false|none|Lang is th language in which the address is registered|
 |»» lat|number|false|none|Lat is the GPS latitude|
 |»» lng|number|false|none|Lon is the GPS longitude|
-|»» machi_name|string|false|none|MachiName is the name of the town, e.g., 浅草|
-|»» muni_name|string|false|none|MuniName is the name of the municipality, e.g.,　台東区|
-|»» postal_code|string|false|none|PostCode is the local postal code, e.g., 110-0014|
-|»» region_code|integer|false|none|RegionCode is the code of the region, e.g., 13|
-|»» region_name|string|false|none|RegionName is the name of the region, e.g., 東京都, or 岐阜県|
+|»» machi_name|string|false|none|MachiName is the name of the town|
+|»» muni_name|string|false|none|MuniName is the name of the municipality|
+|»» postal_code|string|false|none|none|
+|»» region_code|integer|false|none|RegionCode is the code of the region|
+|»» region_name|string|false|none|RegionName is the name of the region|
 |»» updated_at|string|false|none|none|
 |» address_ja|[model.Address](#schemamodel.address)|false|none|none|
 |» attrs|[[model.WarehouseAttr](#schemamodel.warehouseattr)]|false|none|none|
@@ -5220,88 +6926,88 @@ Create a Warehouse
 ```json
 {
   "address_en": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "address_ja": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "attrs": [
     {
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "desc_en": "string",
       "desc_ja": "string",
       "id": 0,
       "key": "string",
       "type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "value_en": "string",
       "value_ja": "string"
     }
   ],
   "company_id": 0,
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
   "name_en": "string",
   "name_ja": "string",
@@ -5312,42 +7018,42 @@ Create a Warehouse
     {
       "attribution": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "id": 0,
       "name": "string",
       "ref": "string",
       "ref_type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "url": "string",
       "warehouse_id": 0
     }
   ],
   "sqmtr": 0,
   "type": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "url": "string"
@@ -5367,88 +7073,88 @@ Create a Warehouse
 ```json
 {
   "address_en": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "address_ja": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "attrs": [
     {
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "desc_en": "string",
       "desc_ja": "string",
       "id": 0,
       "key": "string",
       "type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "value_en": "string",
       "value_ja": "string"
     }
   ],
   "company_id": 0,
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
   "name_en": "string",
   "name_ja": "string",
@@ -5459,42 +7165,42 @@ Create a Warehouse
     {
       "attribution": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "id": 0,
       "name": "string",
       "ref": "string",
       "ref_type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "url": "string",
       "warehouse_id": 0
     }
   ],
   "sqmtr": 0,
   "type": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "url": "string"
@@ -5622,88 +7328,88 @@ Retrieve a Warehouse
 ```json
 {
   "address_en": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "address_ja": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "attrs": [
     {
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "desc_en": "string",
       "desc_ja": "string",
       "id": 0,
       "key": "string",
       "type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "value_en": "string",
       "value_ja": "string"
     }
   ],
   "company_id": 0,
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
   "name_en": "string",
   "name_ja": "string",
@@ -5714,42 +7420,42 @@ Retrieve a Warehouse
     {
       "attribution": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "id": 0,
       "name": "string",
       "ref": "string",
       "ref_type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "url": "string",
       "warehouse_id": 0
     }
   ],
   "sqmtr": 0,
   "type": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "url": "string"
@@ -5881,88 +7587,88 @@ Update attributes of a Warehouse
 ```json
 {
   "address_en": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "address_ja": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "attrs": [
     {
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "desc_en": "string",
       "desc_ja": "string",
       "id": 0,
       "key": "string",
       "type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "value_en": "string",
       "value_ja": "string"
     }
   ],
   "company_id": 0,
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
   "name_en": "string",
   "name_ja": "string",
@@ -5973,42 +7679,42 @@ Update attributes of a Warehouse
     {
       "attribution": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "id": 0,
       "name": "string",
       "ref": "string",
       "ref_type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "url": "string",
       "warehouse_id": 0
     }
   ],
   "sqmtr": 0,
   "type": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "url": "string"
@@ -6029,88 +7735,88 @@ Update attributes of a Warehouse
 ```json
 {
   "address_en": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "address_ja": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "attrs": [
     {
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "desc_en": "string",
       "desc_ja": "string",
       "id": 0,
       "key": "string",
       "type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "value_en": "string",
       "value_ja": "string"
     }
   ],
   "company_id": 0,
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
   "name_en": "string",
   "name_ja": "string",
@@ -6121,42 +7827,42 @@ Update attributes of a Warehouse
     {
       "attribution": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "id": 0,
       "name": "string",
       "ref": "string",
       "ref_type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "url": "string",
       "warehouse_id": 0
     }
   ],
   "sqmtr": 0,
   "type": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "url": "string"
@@ -6290,88 +7996,88 @@ Delete a Warehouse by ID
 ```json
 {
   "address_en": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "address_ja": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "attrs": [
     {
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "desc_en": "string",
       "desc_ja": "string",
       "id": 0,
       "key": "string",
       "type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "value_en": "string",
       "value_ja": "string"
     }
   ],
   "company_id": 0,
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
   "name_en": "string",
   "name_ja": "string",
@@ -6382,42 +8088,42 @@ Delete a Warehouse by ID
     {
       "attribution": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "id": 0,
       "name": "string",
       "ref": "string",
       "ref_type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "url": "string",
       "warehouse_id": 0
     }
   ],
   "sqmtr": 0,
   "type": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "url": "string"
@@ -6552,88 +8258,88 @@ Provides a list of Warehouse objects ordered as a tree
 {
   "warehouse": {
     "address_en": {
-      "building_name": "string",
-      "country_code": "string",
-      "country_name": "string",
-      "created_at": "string",
-      "deleted_at": "string",
-      "district_name": "string",
+      "building_name": "TriSeven Building",
+      "country_code": "JP",
+      "country_name": "Japan",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
+      "district_name": "5-10",
       "formatted": "string",
       "geo_coder": "string",
       "geo_coder_ref": "string",
       "id": 0,
-      "lang": "string",
+      "lang": "ja_jp",
       "lat": 0,
       "lng": 0,
-      "machi_name": "string",
-      "muni_name": "string",
-      "postal_code": "string",
-      "region_code": 0,
-      "region_name": "string",
-      "updated_at": "string"
+      "machi_name": "浅草",
+      "muni_name": "台東区",
+      "postal_code": "110-0014",
+      "region_code": 13,
+      "region_name": "東京都",
+      "updated_at": "2019-06-18T05:07:22Z"
     },
     "address_ja": {
-      "building_name": "string",
-      "country_code": "string",
-      "country_name": "string",
-      "created_at": "string",
-      "deleted_at": "string",
-      "district_name": "string",
+      "building_name": "TriSeven Building",
+      "country_code": "JP",
+      "country_name": "Japan",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
+      "district_name": "5-10",
       "formatted": "string",
       "geo_coder": "string",
       "geo_coder_ref": "string",
       "id": 0,
-      "lang": "string",
+      "lang": "ja_jp",
       "lat": 0,
       "lng": 0,
-      "machi_name": "string",
-      "muni_name": "string",
-      "postal_code": "string",
-      "region_code": 0,
-      "region_name": "string",
-      "updated_at": "string"
+      "machi_name": "浅草",
+      "muni_name": "台東区",
+      "postal_code": "110-0014",
+      "region_code": 13,
+      "region_name": "東京都",
+      "updated_at": "2019-06-18T05:07:22Z"
     },
     "attrs": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "desc_en": "string",
         "desc_ja": "string",
         "id": 0,
         "key": "string",
         "type": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "value_en": "string",
         "value_ja": "string"
       }
     ],
     "company_id": 0,
-    "created_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
     "created_by": {
       "avatar": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "email": "string",
       "id": 0,
       "language": "string",
       "name": "string",
       "roles": [
         {
-          "created_at": "string",
-          "deleted_at": "string",
+          "created_at": "2019-06-18T05:07:22Z",
+          "deleted_at": "2019-06-18T05:07:22Z",
           "id": 0,
           "name": "string",
-          "updated_at": "string",
+          "updated_at": "2019-06-18T05:07:22Z",
           "users": [
             null
           ]
         }
       ],
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
-    "deleted_at": "string",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "id": 0,
     "name_en": "string",
     "name_ja": "string",
@@ -6644,42 +8350,42 @@ Provides a list of Warehouse objects ordered as a tree
       {
         "attribution": "string",
         "company_id": 0,
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
         "ref": "string",
         "ref_type": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "url": "string",
         "warehouse_id": 0
       }
     ],
     "sqmtr": 0,
     "type": "string",
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "updated_by": {
       "avatar": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "email": "string",
       "id": 0,
       "language": "string",
       "name": "string",
       "roles": [
         {
-          "created_at": "string",
-          "deleted_at": "string",
+          "created_at": "2019-06-18T05:07:22Z",
+          "deleted_at": "2019-06-18T05:07:22Z",
           "id": 0,
           "name": "string",
-          "updated_at": "string",
+          "updated_at": "2019-06-18T05:07:22Z",
           "users": [
             null
           ]
         }
       ],
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
     "url": "string"
@@ -6709,13 +8415,13 @@ ApiKeyAuth
 
 ```json
 {
-  "branch": "string",
-  "date": "string",
+  "branch": "master",
+  "date": "2019-06-19T03:20:26Z",
   "domains": [
-    "string"
+    "['https://aukai.io']"
   ],
-  "uptime": "string",
-  "version": "string"
+  "uptime": "27h14m37.809030294s",
+  "version": "1.0.0"
 }
 
 ```
@@ -6736,25 +8442,25 @@ ApiKeyAuth
 
 ```json
 {
-  "building_name": "string",
-  "country_code": "string",
-  "country_name": "string",
-  "created_at": "string",
-  "deleted_at": "string",
-  "district_name": "string",
+  "building_name": "TriSeven Building",
+  "country_code": "JP",
+  "country_name": "Japan",
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
+  "district_name": "5-10",
   "formatted": "string",
   "geo_coder": "string",
   "geo_coder_ref": "string",
   "id": 0,
-  "lang": "string",
+  "lang": "ja_jp",
   "lat": 0,
   "lng": 0,
-  "machi_name": "string",
-  "muni_name": "string",
-  "postal_code": "string",
-  "region_code": 0,
-  "region_name": "string",
-  "updated_at": "string"
+  "machi_name": "浅草",
+  "muni_name": "台東区",
+  "postal_code": "110-0014",
+  "region_code": 13,
+  "region_name": "東京都",
+  "updated_at": "2019-06-18T05:07:22Z"
 }
 
 ```
@@ -6764,23 +8470,23 @@ ApiKeyAuth
 |Name|Type|Required|Restrictions|Description|
 |---|---|---|---|---|
 |building_name|string|false|none|BuildingName is the name of the building, e.g., TriSeven Building|
-|country_code|string|false|none|CountryCode abbreviation e.g., JP|
-|country_name|string|false|none|CountryName e.g., Japan|
+|country_code|string|false|none|CountryCode abbreviation|
+|country_name|string|false|none|none|
 |created_at|string|false|none|none|
 |deleted_at|string|false|none|none|
-|district_name|string|false|none|BlockBldgName is the name the block and building number e.g., 5-10|
+|district_name|string|false|none|BlockBldgName is the name the block and building number|
 |formatted|string|false|none|Formatted address for display in the target language|
 |geo_coder|string|false|none|GeoCoder is the system that was used to resolve this address|
 |geo_coder_ref|string|false|none|GeoCoderRef is the reference within the system used to geocode this Address|
 |id|integer|false|none|none|
-|lang|string|false|none|Lang is th language in which the address is registered, e.g., ja_jp, or en_us|
+|lang|string|false|none|Lang is th language in which the address is registered|
 |lat|number|false|none|Lat is the GPS latitude|
 |lng|number|false|none|Lon is the GPS longitude|
-|machi_name|string|false|none|MachiName is the name of the town, e.g., 浅草|
-|muni_name|string|false|none|MuniName is the name of the municipality, e.g.,　台東区|
-|postal_code|string|false|none|PostCode is the local postal code, e.g., 110-0014|
-|region_code|integer|false|none|RegionCode is the code of the region, e.g., 13|
-|region_name|string|false|none|RegionName is the name of the region, e.g., 東京都, or 岐阜県|
+|machi_name|string|false|none|MachiName is the name of the town|
+|muni_name|string|false|none|MuniName is the name of the municipality|
+|postal_code|string|false|none|none|
+|region_code|integer|false|none|RegionCode is the code of the region|
+|region_name|string|false|none|RegionName is the name of the region|
 |updated_at|string|false|none|none|
 
 <h2 id="tocSmodel.company">model.Company</h2>
@@ -6790,73 +8496,73 @@ ApiKeyAuth
 ```json
 {
   "address_en": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "address_ja": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
   "name_en": "string",
   "name_ja": "string",
@@ -6865,40 +8571,40 @@ ApiKeyAuth
     {
       "attribution": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "id": 0,
       "name": "string",
       "ref": "string",
       "ref_type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "url": "string",
       "warehouse_id": 0
     }
   ],
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "url": "string"
@@ -6932,69 +8638,69 @@ ApiKeyAuth
 {
   "comment": "string",
   "company_id": 0,
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "file": {
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "dir": "string",
-    "ext": "string",
+    "ext": "png",
     "filename": "string",
-    "id": 0,
-    "mime_type": "string",
-    "ref": "string",
-    "updated_at": "string",
-    "url": "string"
+    "id": 1,
+    "mime_type": "image/png",
+    "ref": "df6301cfb58750fd8707611cea13e9b3",
+    "updated_at": "2019-06-18T05:07:22Z",
+    "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
   },
   "id": 0,
   "status": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "warehouse_id": 0
@@ -7026,13 +8732,13 @@ ApiKeyAuth
 {
   "attribution": "string",
   "company_id": 0,
-  "created_at": "string",
-  "deleted_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
   "name": "string",
   "ref": "string",
   "ref_type": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "url": "string",
   "warehouse_id": 0
 }
@@ -7061,17 +8767,17 @@ ApiKeyAuth
 
 ```json
 {
-  "created_at": "string",
-  "deleted_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
   "name": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "users": [
     {
       "avatar": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "email": "string",
       "id": 0,
       "language": "string",
@@ -7079,7 +8785,7 @@ ApiKeyAuth
       "roles": [
         null
       ],
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     }
   ]
@@ -7106,25 +8812,25 @@ ApiKeyAuth
 {
   "avatar": "string",
   "company_id": 0,
-  "created_at": "string",
-  "deleted_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "email": "string",
   "id": 0,
   "language": "string",
   "name": "string",
   "roles": [
     {
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "id": 0,
       "name": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "users": [
         null
       ]
     }
   ],
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "username": "string"
 }
 
@@ -7153,88 +8859,88 @@ ApiKeyAuth
 ```json
 {
   "address_en": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "address_ja": {
-    "building_name": "string",
-    "country_code": "string",
-    "country_name": "string",
-    "created_at": "string",
-    "deleted_at": "string",
-    "district_name": "string",
+    "building_name": "TriSeven Building",
+    "country_code": "JP",
+    "country_name": "Japan",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "district_name": "5-10",
     "formatted": "string",
     "geo_coder": "string",
     "geo_coder_ref": "string",
     "id": 0,
-    "lang": "string",
+    "lang": "ja_jp",
     "lat": 0,
     "lng": 0,
-    "machi_name": "string",
-    "muni_name": "string",
-    "postal_code": "string",
-    "region_code": 0,
-    "region_name": "string",
-    "updated_at": "string"
+    "machi_name": "浅草",
+    "muni_name": "台東区",
+    "postal_code": "110-0014",
+    "region_code": 13,
+    "region_name": "東京都",
+    "updated_at": "2019-06-18T05:07:22Z"
   },
   "attrs": [
     {
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "desc_en": "string",
       "desc_ja": "string",
       "id": 0,
       "key": "string",
       "type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "value_en": "string",
       "value_ja": "string"
     }
   ],
   "company_id": 0,
-  "created_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "deleted_at": "string",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
   "name_en": "string",
   "name_ja": "string",
@@ -7245,42 +8951,42 @@ ApiKeyAuth
     {
       "attribution": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "id": 0,
       "name": "string",
       "ref": "string",
       "ref_type": "string",
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "url": "string",
       "warehouse_id": 0
     }
   ],
   "sqmtr": 0,
   "type": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
     "avatar": "string",
     "company_id": 0,
-    "created_at": "string",
-    "deleted_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "email": "string",
     "id": 0,
     "language": "string",
     "name": "string",
     "roles": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "users": [
           null
         ]
       }
     ],
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
   "url": "string"
@@ -7318,14 +9024,14 @@ ApiKeyAuth
 
 ```json
 {
-  "created_at": "string",
-  "deleted_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "desc_en": "string",
   "desc_ja": "string",
   "id": 0,
   "key": "string",
   "type": "string",
-  "updated_at": "string",
+  "updated_at": "2019-06-18T05:07:22Z",
   "value_en": "string",
   "value_ja": "string"
 }
@@ -7355,88 +9061,88 @@ ApiKeyAuth
 {
   "warehouse": {
     "address_en": {
-      "building_name": "string",
-      "country_code": "string",
-      "country_name": "string",
-      "created_at": "string",
-      "deleted_at": "string",
-      "district_name": "string",
+      "building_name": "TriSeven Building",
+      "country_code": "JP",
+      "country_name": "Japan",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
+      "district_name": "5-10",
       "formatted": "string",
       "geo_coder": "string",
       "geo_coder_ref": "string",
       "id": 0,
-      "lang": "string",
+      "lang": "ja_jp",
       "lat": 0,
       "lng": 0,
-      "machi_name": "string",
-      "muni_name": "string",
-      "postal_code": "string",
-      "region_code": 0,
-      "region_name": "string",
-      "updated_at": "string"
+      "machi_name": "浅草",
+      "muni_name": "台東区",
+      "postal_code": "110-0014",
+      "region_code": 13,
+      "region_name": "東京都",
+      "updated_at": "2019-06-18T05:07:22Z"
     },
     "address_ja": {
-      "building_name": "string",
-      "country_code": "string",
-      "country_name": "string",
-      "created_at": "string",
-      "deleted_at": "string",
-      "district_name": "string",
+      "building_name": "TriSeven Building",
+      "country_code": "JP",
+      "country_name": "Japan",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
+      "district_name": "5-10",
       "formatted": "string",
       "geo_coder": "string",
       "geo_coder_ref": "string",
       "id": 0,
-      "lang": "string",
+      "lang": "ja_jp",
       "lat": 0,
       "lng": 0,
-      "machi_name": "string",
-      "muni_name": "string",
-      "postal_code": "string",
-      "region_code": 0,
-      "region_name": "string",
-      "updated_at": "string"
+      "machi_name": "浅草",
+      "muni_name": "台東区",
+      "postal_code": "110-0014",
+      "region_code": 13,
+      "region_name": "東京都",
+      "updated_at": "2019-06-18T05:07:22Z"
     },
     "attrs": [
       {
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "desc_en": "string",
         "desc_ja": "string",
         "id": 0,
         "key": "string",
         "type": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "value_en": "string",
         "value_ja": "string"
       }
     ],
     "company_id": 0,
-    "created_at": "string",
+    "created_at": "2019-06-18T05:07:22Z",
     "created_by": {
       "avatar": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "email": "string",
       "id": 0,
       "language": "string",
       "name": "string",
       "roles": [
         {
-          "created_at": "string",
-          "deleted_at": "string",
+          "created_at": "2019-06-18T05:07:22Z",
+          "deleted_at": "2019-06-18T05:07:22Z",
           "id": 0,
           "name": "string",
-          "updated_at": "string",
+          "updated_at": "2019-06-18T05:07:22Z",
           "users": [
             null
           ]
         }
       ],
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
-    "deleted_at": "string",
+    "deleted_at": "2019-06-18T05:07:22Z",
     "id": 0,
     "name_en": "string",
     "name_ja": "string",
@@ -7447,42 +9153,42 @@ ApiKeyAuth
       {
         "attribution": "string",
         "company_id": 0,
-        "created_at": "string",
-        "deleted_at": "string",
+        "created_at": "2019-06-18T05:07:22Z",
+        "deleted_at": "2019-06-18T05:07:22Z",
         "id": 0,
         "name": "string",
         "ref": "string",
         "ref_type": "string",
-        "updated_at": "string",
+        "updated_at": "2019-06-18T05:07:22Z",
         "url": "string",
         "warehouse_id": 0
       }
     ],
     "sqmtr": 0,
     "type": "string",
-    "updated_at": "string",
+    "updated_at": "2019-06-18T05:07:22Z",
     "updated_by": {
       "avatar": "string",
       "company_id": 0,
-      "created_at": "string",
-      "deleted_at": "string",
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
       "email": "string",
       "id": 0,
       "language": "string",
       "name": "string",
       "roles": [
         {
-          "created_at": "string",
-          "deleted_at": "string",
+          "created_at": "2019-06-18T05:07:22Z",
+          "deleted_at": "2019-06-18T05:07:22Z",
           "id": 0,
           "name": "string",
-          "updated_at": "string",
+          "updated_at": "2019-06-18T05:07:22Z",
           "users": [
             null
           ]
         }
       ],
-      "updated_at": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
     "url": "string"
@@ -7507,16 +9213,16 @@ ApiKeyAuth
 
 ```json
 {
-  "created_at": "string",
-  "deleted_at": "string",
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
   "dir": "string",
-  "ext": "string",
+  "ext": "png",
   "filename": "string",
-  "id": 0,
-  "mime_type": "string",
-  "ref": "string",
-  "updated_at": "string",
-  "url": "string"
+  "id": 1,
+  "mime_type": "image/png",
+  "ref": "df6301cfb58750fd8707611cea13e9b3",
+  "updated_at": "2019-06-18T05:07:22Z",
+  "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
 }
 
 ```

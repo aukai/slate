@@ -851,6 +851,362 @@ To perform this operation, you must be authenticated by means of one of the foll
 ApiKeyAuth
 </aside>
 
+<h1 id="aukai-core-api-auth">auth</h1>
+
+## Authenticate
+
+> Code samples
+
+```http
+POST http://aukai.io/auth/ HTTP/1.1
+Host: aukai.io
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X POST http://aukai.io/auth/ \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "http://aukai.io/auth/", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/auth/',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('http://aukai.io/auth/', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'http://aukai.io/auth/',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`POST /auth/`
+
+Authenticate a user by username:password credentials and
+receive a JSON Web Token to authenticate subsequent API
+requests.
+
+> Body parameter
+
+```json
+{
+  "avatar": "string",
+  "email": "string",
+  "id": 0,
+  "language": "string",
+  "name": "string",
+  "password": "string",
+  "roles": [
+    {
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
+      "id": 0,
+      "name": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
+      "users": [
+        {
+          "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+          "company_id": 1,
+          "created_at": "2019-06-18T05:07:22Z",
+          "deleted_at": "2019-06-18T05:07:22Z",
+          "email": "tanaka.suzuki@aukai.dev",
+          "id": 0,
+          "language": "ja",
+          "name": "Tanaka Suzuki",
+          "updated_at": "2019-06-18T05:07:22Z",
+          "username": "string"
+        }
+      ]
+    }
+  ],
+  "username": "string"
+}
+```
+
+<h3 id="authenticate-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[api.UserData](#schemaapi.userdata)|true|username and password|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "accessToken": {
+    "expiresAt": 0,
+    "token": "string"
+  },
+  "refreshToken": {
+    "expiresAt": 0,
+    "token": "string"
+  },
+  "status": "string",
+  "user": {
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "email": "tanaka.suzuki@aukai.dev",
+    "id": 0,
+    "language": "ja",
+    "name": "Tanaka Suzuki",
+    "updated_at": "2019-06-18T05:07:22Z",
+    "username": "string"
+  }
+}
+```
+
+<h3 id="authenticate-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[api.AuthToken](#schemaapi.authtoken)|
+|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Authentication failed|[api.AuthStatus](#schemaapi.authstatus)|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|JWT could not be generated|[api.AuthStatus](#schemaapi.authstatus)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## Refresh JWT
+
+> Code samples
+
+```http
+POST http://aukai.io/auth/refresh HTTP/1.1
+Host: aukai.io
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X POST http://aukai.io/auth/refresh \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "http://aukai.io/auth/refresh", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/auth/refresh',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('http://aukai.io/auth/refresh', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'http://aukai.io/auth/refresh',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`POST /auth/refresh`
+
+Issues a new valid JSON Web Token if the provided Refresh Token
+is valid and has not expired.
+
+> Body parameter
+
+```json
+{
+  "token": "string"
+}
+```
+
+<h3 id="refresh-jwt-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[api.RefreshTokenData](#schemaapi.refreshtokendata)|true|refresh token provided by /auth/|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "accessToken": {
+    "expiresAt": 0,
+    "token": "string"
+  },
+  "refreshToken": {
+    "expiresAt": 0,
+    "token": "string"
+  },
+  "status": "string",
+  "user": {
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "email": "tanaka.suzuki@aukai.dev",
+    "id": 0,
+    "language": "ja",
+    "name": "Tanaka Suzuki",
+    "updated_at": "2019-06-18T05:07:22Z",
+    "username": "string"
+  }
+}
+```
+
+<h3 id="refresh-jwt-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[api.AuthToken](#schemaapi.authtoken)|
+|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Refresh token invalid or not provided|[api.AuthStatus](#schemaapi.authstatus)|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|JWT could not be generated|[api.AuthStatus](#schemaapi.authstatus)|
+
+### Response Headers
+
+|Status|Header|Type|Format|Description|
+|---|---|---|---|---|
+|200|Token|string||JSON Web Token|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
 <h1 id="aukai-core-api-company">company</h1>
 
 ## List Companies
@@ -1005,26 +1361,14 @@ Lists Companies
     },
     "created_at": "2019-06-18T05:07:22Z",
     "created_by": {
-      "avatar": "string",
-      "company_id": 0,
+      "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+      "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "string",
+      "email": "tanaka.suzuki@aukai.dev",
       "id": 0,
-      "language": "string",
-      "name": "string",
-      "roles": [
-        {
-          "created_at": "2019-06-18T05:07:22Z",
-          "deleted_at": "2019-06-18T05:07:22Z",
-          "id": 0,
-          "name": "string",
-          "updated_at": "2019-06-18T05:07:22Z",
-          "users": [
-            null
-          ]
-        }
-      ],
+      "language": "ja",
+      "name": "Tanaka Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -1050,26 +1394,14 @@ Lists Companies
     ],
     "updated_at": "2019-06-18T05:07:22Z",
     "updated_by": {
-      "avatar": "string",
-      "company_id": 0,
+      "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+      "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "string",
+      "email": "tanaka.suzuki@aukai.dev",
       "id": 0,
-      "language": "string",
-      "name": "string",
-      "roles": [
-        {
-          "created_at": "2019-06-18T05:07:22Z",
-          "deleted_at": "2019-06-18T05:07:22Z",
-          "id": 0,
-          "name": "string",
-          "updated_at": "2019-06-18T05:07:22Z",
-          "users": [
-            null
-          ]
-        }
-      ],
+      "language": "ja",
+      "name": "Tanaka Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -1122,13 +1454,6 @@ Status Code **200**
 |»» id|integer|false|none|none|
 |»» language|string|false|none|none|
 |»» name|string|true|none|none|
-|»» roles|[[model.Role](#schemamodel.role)]|false|none|none|
-|»»» created_at|string|false|none|none|
-|»»» deleted_at|string|false|none|none|
-|»»» id|integer|false|none|none|
-|»»» name|string|true|none|none|
-|»»» updated_at|string|false|none|none|
-|»»» users|[[model.User](#schemamodel.user)]|false|none|none|
 |»» updated_at|string|false|none|none|
 |»» username|string|true|none|none|
 |» deleted_at|string|false|none|none|
@@ -1312,26 +1637,14 @@ Create a Company
   },
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -1357,26 +1670,14 @@ Create a Company
   ],
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -1440,26 +1741,14 @@ Create a Company
   },
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -1485,26 +1774,14 @@ Create a Company
   ],
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -1674,26 +1951,14 @@ Retrieve a Company
   },
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -1719,26 +1984,14 @@ Retrieve a Company
   ],
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -1912,26 +2165,14 @@ Update attributes of a Company
   },
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -1957,26 +2198,14 @@ Update attributes of a Company
   ],
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -2041,26 +2270,14 @@ Update attributes of a Company
   },
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -2086,26 +2303,14 @@ Update attributes of a Company
   ],
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -2281,26 +2486,14 @@ Delete a Company by ID
   },
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -2326,26 +2519,14 @@ Delete a Company by ID
   ],
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -2364,7 +2545,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 ApiKeyAuth
 </aside>
 
-## List Warehouses associated with a Company
+## List Company's Warehouses
 
 > Code samples
 
@@ -2465,7 +2646,7 @@ p JSON.parse(result)
 
 Provides a list of Warehouse objects  associated with a company
 
-<h3 id="list-warehouses-associated-with-a-company-parameters">Parameters</h3>
+<h3 id="list-company's-warehouses-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
@@ -2527,36 +2708,24 @@ Provides a list of Warehouse objects  associated with a company
         "desc_en": "string",
         "desc_ja": "string",
         "id": 0,
-        "key": "string",
-        "type": "string",
+        "key": "temp.const",
+        "type": "feature",
         "updated_at": "2019-06-18T05:07:22Z",
-        "value_en": "string",
-        "value_ja": "string"
+        "value_en": "Temperature Controlled",
+        "value_ja": "定温倉庫"
       }
     ],
     "company_id": 0,
     "created_at": "2019-06-18T05:07:22Z",
     "created_by": {
-      "avatar": "string",
-      "company_id": 0,
+      "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+      "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "string",
+      "email": "tanaka.suzuki@aukai.dev",
       "id": 0,
-      "language": "string",
-      "name": "string",
-      "roles": [
-        {
-          "created_at": "2019-06-18T05:07:22Z",
-          "deleted_at": "2019-06-18T05:07:22Z",
-          "id": 0,
-          "name": "string",
-          "updated_at": "2019-06-18T05:07:22Z",
-          "users": [
-            null
-          ]
-        }
-      ],
+      "language": "ja",
+      "name": "Tanaka Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -2586,26 +2755,14 @@ Provides a list of Warehouse objects  associated with a company
     "type": "string",
     "updated_at": "2019-06-18T05:07:22Z",
     "updated_by": {
-      "avatar": "string",
-      "company_id": 0,
+      "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+      "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "string",
+      "email": "tanaka.suzuki@aukai.dev",
       "id": 0,
-      "language": "string",
-      "name": "string",
-      "roles": [
-        {
-          "created_at": "2019-06-18T05:07:22Z",
-          "deleted_at": "2019-06-18T05:07:22Z",
-          "id": 0,
-          "name": "string",
-          "updated_at": "2019-06-18T05:07:22Z",
-          "users": [
-            null
-          ]
-        }
-      ],
+      "language": "ja",
+      "name": "Tanaka Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -2614,13 +2771,13 @@ Provides a list of Warehouse objects  associated with a company
 ]
 ```
 
-<h3 id="list-warehouses-associated-with-a-company-responses">Responses</h3>
+<h3 id="list-company's-warehouses-responses">Responses</h3>
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|Inline|
 
-<h3 id="list-warehouses-associated-with-a-company-responseschema">Response Schema</h3>
+<h3 id="list-company's-warehouses-responseschema">Response Schema</h3>
 
 Status Code **200**
 
@@ -2670,13 +2827,6 @@ Status Code **200**
 |»» id|integer|false|none|none|
 |»» language|string|false|none|none|
 |»» name|string|true|none|none|
-|»» roles|[[model.Role](#schemamodel.role)]|false|none|none|
-|»»» created_at|string|false|none|none|
-|»»» deleted_at|string|false|none|none|
-|»»» id|integer|false|none|none|
-|»»» name|string|true|none|none|
-|»»» updated_at|string|false|none|none|
-|»»» users|[[model.User](#schemamodel.user)]|false|none|none|
 |»» updated_at|string|false|none|none|
 |»» username|string|true|none|none|
 |» deleted_at|string|false|none|none|
@@ -2703,6 +2853,261 @@ Status Code **200**
 |» updated_at|string|false|none|none|
 |» updated_by|[model.User](#schemamodel.user)|false|none|none|
 |» url|string|false|none|none|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
+</aside>
+
+<h1 id="aukai-core-api-contact">contact</h1>
+
+## Create Contact Request
+
+> Code samples
+
+```http
+POST http://aukai.io/contact/ HTTP/1.1
+Host: aukai.io
+Content-Type: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X POST http://aukai.io/contact/ \
+  -H 'Content-Type: application/json'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "http://aukai.io/contact/", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/contact/',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json'
+}
+
+r = requests.post('http://aukai.io/contact/', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json'
+}
+
+result = RestClient.post 'http://aukai.io/contact/',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`POST /contact/`
+
+Create a Contact Request and notify Aukai staff.
+
+> Body parameter
+
+```json
+{
+  "company": "XYZ Corporation",
+  "email": "user@aukai.dev",
+  "firstName": "Taro",
+  "lastName": "Suzuki",
+  "message": "string",
+  "phone": "+81 03-0000-0000"
+}
+```
+
+<h3 id="create-contact-request-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[api.ContactRequest](#schemaapi.contactrequest)|true|the contact details of the user|
+
+<h3 id="create-contact-request-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|None|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<h1 id="aukai-core-api-metrics">metrics</h1>
+
+## Get system metrics
+
+> Code samples
+
+```http
+GET http://aukai.io/metrics/ HTTP/1.1
+Host: aukai.io
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X GET http://aukai.io/metrics/ \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer JWT'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer JWT"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://aukai.io/metrics/", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer JWT'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/metrics/',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer JWT'
+}
+
+r = requests.get('http://aukai.io/metrics/', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer JWT'
+}
+
+result = RestClient.get 'http://aukai.io/metrics/',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`GET /metrics/`
+
+Retrieve a summary of the data registered in the system and
+available to the user
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "companies": 200,
+  "sqmt": 100000000,
+  "users": 4000,
+  "warehouses": 1000
+}
+```
+
+<h3 id="get-system-metrics-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[api.Metrics](#schemaapi.metrics)|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -2822,29 +3227,17 @@ Lists Networks
 [
   {
     "comment": "string",
-    "company_id": 0,
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "created_by": {
-      "avatar": "string",
-      "company_id": 0,
+      "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+      "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "string",
+      "email": "tanaka.suzuki@aukai.dev",
       "id": 0,
-      "language": "string",
-      "name": "string",
-      "roles": [
-        {
-          "created_at": "2019-06-18T05:07:22Z",
-          "deleted_at": "2019-06-18T05:07:22Z",
-          "id": 0,
-          "name": "string",
-          "updated_at": "2019-06-18T05:07:22Z",
-          "users": [
-            null
-          ]
-        }
-      ],
+      "language": "ja",
+      "name": "Tanaka Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -2862,33 +3255,21 @@ Lists Networks
       "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
     },
     "id": 0,
-    "status": "string",
+    "status": "requested",
     "updated_at": "2019-06-18T05:07:22Z",
     "updated_by": {
-      "avatar": "string",
-      "company_id": 0,
+      "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+      "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "string",
+      "email": "tanaka.suzuki@aukai.dev",
       "id": 0,
-      "language": "string",
-      "name": "string",
-      "roles": [
-        {
-          "created_at": "2019-06-18T05:07:22Z",
-          "deleted_at": "2019-06-18T05:07:22Z",
-          "id": 0,
-          "name": "string",
-          "updated_at": "2019-06-18T05:07:22Z",
-          "users": [
-            null
-          ]
-        }
-      ],
+      "language": "ja",
+      "name": "Tanaka Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
-    "warehouse_id": 0
+    "warehouse_id": 1
   }
 ]
 ```
@@ -2918,13 +3299,6 @@ Status Code **200**
 |»» id|integer|false|none|none|
 |»» language|string|false|none|none|
 |»» name|string|true|none|none|
-|»» roles|[[model.Role](#schemamodel.role)]|false|none|none|
-|»»» created_at|string|false|none|none|
-|»»» deleted_at|string|false|none|none|
-|»»» id|integer|false|none|none|
-|»»» name|string|true|none|none|
-|»»» updated_at|string|false|none|none|
-|»»» users|[[model.User](#schemamodel.user)]|false|none|none|
 |»» updated_at|string|false|none|none|
 |»» username|string|true|none|none|
 |» deleted_at|string|false|none|none|
@@ -2940,7 +3314,7 @@ Status Code **200**
 |»» updated_at|string|false|none|none|
 |»» url|string|false|none|URL for external systems to use to access the file|
 |» id|integer|false|none|none|
-|» status|string|false|none|none|
+|» status|string|false|none|Status is the connection status for the Warehouse and Company|
 |» updated_at|string|false|none|none|
 |» updated_by|[model.User](#schemamodel.user)|false|none|none|
 |» warehouse_id|integer|false|none|The Warehouse side of the network association.|
@@ -3064,29 +3438,17 @@ Create a Network
 ```json
 {
   "comment": "string",
-  "company_id": 0,
+  "company_id": 1,
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -3104,33 +3466,21 @@ Create a Network
     "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
   },
   "id": 0,
-  "status": "string",
+  "status": "requested",
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "warehouse_id": 0
+  "warehouse_id": 1
 }
 ```
 
@@ -3147,29 +3497,17 @@ Create a Network
 ```json
 {
   "comment": "string",
-  "company_id": 0,
+  "company_id": 1,
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -3187,33 +3525,21 @@ Create a Network
     "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
   },
   "id": 0,
-  "status": "string",
+  "status": "requested",
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "warehouse_id": 0
+  "warehouse_id": 1
 }
 ```
 
@@ -3338,29 +3664,17 @@ Retrieve a Network
 ```json
 {
   "comment": "string",
-  "company_id": 0,
+  "company_id": 1,
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -3378,33 +3692,21 @@ Retrieve a Network
     "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
   },
   "id": 0,
-  "status": "string",
+  "status": "requested",
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "warehouse_id": 0
+  "warehouse_id": 1
 }
 ```
 
@@ -3533,29 +3835,17 @@ Update attributes of a Network
 ```json
 {
   "comment": "string",
-  "company_id": 0,
+  "company_id": 1,
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -3573,33 +3863,21 @@ Update attributes of a Network
     "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
   },
   "id": 0,
-  "status": "string",
+  "status": "requested",
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "warehouse_id": 0
+  "warehouse_id": 1
 }
 ```
 
@@ -3617,29 +3895,17 @@ Update attributes of a Network
 ```json
 {
   "comment": "string",
-  "company_id": 0,
+  "company_id": 1,
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -3657,33 +3923,21 @@ Update attributes of a Network
     "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
   },
   "id": 0,
-  "status": "string",
+  "status": "requested",
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "warehouse_id": 0
+  "warehouse_id": 1
 }
 ```
 
@@ -3814,29 +4068,17 @@ Delete a Network by ID
 ```json
 {
   "comment": "string",
-  "company_id": 0,
+  "company_id": 1,
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -3854,33 +4096,21 @@ Delete a Network by ID
     "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
   },
   "id": 0,
-  "status": "string",
+  "status": "requested",
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "warehouse_id": 0
+  "warehouse_id": 1
 }
 ```
 
@@ -3889,6 +4119,350 @@ Delete a Network by ID
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The deleted network|[model.NetworkAssoc](#schemamodel.networkassoc)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
+</aside>
+
+## List Network Change Events
+
+> Code samples
+
+```http
+GET http://aukai.io/network/{id}/events HTTP/1.1
+Host: aukai.io
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X GET http://aukai.io/network/{id}/events \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer JWT'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer JWT"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://aukai.io/network/{id}/events", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Accept':'application/json',
+  'Authorization':'Bearer JWT'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/network/{id}/events',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Accept': 'application/json',
+  'Authorization': 'Bearer JWT'
+}
+
+r = requests.get('http://aukai.io/network/{id}/events', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer JWT'
+}
+
+result = RestClient.get 'http://aukai.io/network/{id}/events',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`GET /network/{id}/events`
+
+Retrieves the state changes for the network. Files added to a
+Network will be stored in the change events and not in the
+actual Network
+
+> Example responses
+
+> 200 Response
+
+```json
+[
+  {
+    "comment": "Lorem Ipsum ...",
+    "created_at": "2019-06-18T05:07:22Z",
+    "created_by": {
+      "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+      "company_id": 1,
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
+      "email": "tanaka.suzuki@aukai.dev",
+      "id": 0,
+      "language": "ja",
+      "name": "Tanaka Suzuki",
+      "updated_at": "2019-06-18T05:07:22Z",
+      "username": "string"
+    },
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "file": {
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
+      "dir": "string",
+      "ext": "png",
+      "filename": "string",
+      "id": 1,
+      "mime_type": "image/png",
+      "ref": "df6301cfb58750fd8707611cea13e9b3",
+      "updated_at": "2019-06-18T05:07:22Z",
+      "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
+    },
+    "id": 0,
+    "network_assoc_id": 1,
+    "start": "requested",
+    "stop": "approved",
+    "updated_at": "2019-06-18T05:07:22Z"
+  }
+]
+```
+
+<h3 id="list-network-change-events-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|Inline|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|[resource.NotFoundError](#schemaresource.notfounderror)|
+
+<h3 id="list-network-change-events-responseschema">Response Schema</h3>
+
+Status Code **200**
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|*anonymous*|[[model.NetworkEvent](#schemamodel.networkevent)]|false|none|none|
+|» comment|string|false|none|Comment is a note attached to the change even by the user that initiates the chagne|
+|» created_at|string|false|none|none|
+|» created_by|[model.User](#schemamodel.user)|false|none|none|
+|»» avatar|string|false|none|none|
+|»» company_id|integer|false|none|none|
+|»» created_at|string|false|none|none|
+|»» deleted_at|string|false|none|none|
+|»» email|string|true|none|none|
+|»» id|integer|false|none|none|
+|»» language|string|false|none|none|
+|»» name|string|true|none|none|
+|»» updated_at|string|false|none|none|
+|»» username|string|true|none|none|
+|» deleted_at|string|false|none|none|
+|» file|[storedfile.File](#schemastoredfile.file)|false|none|none|
+|»» created_at|string|false|none|none|
+|»» deleted_at|string|false|none|none|
+|»» dir|string|false|none|Dir is the company ID|
+|»» ext|string|false|none|Ext is the extension for the file if it's written to a filesystem|
+|»» filename|string|true|none|Filename is the name given to the file, it's usually the same as Ref|
+|»» id|integer|false|none|none|
+|»» mime_type|string|false|none|MimeType of the file [usually auto detected]|
+|»» ref|string|true|none|Ref is the key used to retrieve the file from our object store|
+|»» updated_at|string|false|none|none|
+|»» url|string|false|none|URL for external systems to use to access the file|
+|» id|integer|false|none|none|
+|» network_assoc_id|integer|false|none|none|
+|» start|string|false|none|StartState is the state of the Network connection before this change Event|
+|» stop|string|false|none|StopState is the state of the Network connection after this change Event is applied|
+|» updated_at|string|false|none|none|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
+</aside>
+
+<h1 id="aukai-core-api-places">places</h1>
+
+## Address AutoComplete
+
+> Code samples
+
+```http
+GET http://aukai.io/place/autocomplete HTTP/1.1
+Host: aukai.io
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X GET http://aukai.io/place/autocomplete \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer JWT'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer JWT"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://aukai.io/place/autocomplete", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'Authorization':'Bearer JWT'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/place/autocomplete',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer JWT'
+}
+
+r = requests.get('http://aukai.io/place/autocomplete', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer JWT'
+}
+
+result = RestClient.get 'http://aukai.io/place/autocomplete',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`GET /place/autocomplete`
+
+AutoComplete an address in the specified language
+
+> Body parameter
+
+```json
+{
+  "address": "string",
+  "lang": "string",
+  "type": "string"
+}
+```
+
+<h3 id="address-autocomplete-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[place.AutoCompleteReq](#schemaplace.autocompletereq)|true|request details|
+
+> Example responses
+
+> 400 Response
+
+```json
+"string"
+```
+
+<h3 id="address-autocomplete-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Google AutoComplete response|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|invalid requests|string|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|unable to fullfil request|string|
+
+<h3 id="address-autocomplete-responseschema">Response Schema</h3>
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -4863,15 +5437,17 @@ ApiKeyAuth
 > Code samples
 
 ```http
-GET http://aukai.io/user/?id=0&username=string&email=string HTTP/1.1
+GET http://aukai.io/user/ HTTP/1.1
 Host: aukai.io
+Content-Type: application/json
 Accept: application/json
 
 ```
 
 ```shell
 # You can also use wget
-curl -X GET http://aukai.io/user/?id=0&username=string&email=string \
+curl -X GET http://aukai.io/user/ \
+  -H 'Content-Type: application/json' \
   -H 'Accept: application/json' \
   -H 'Authorization: Bearer JWT'
 
@@ -4888,6 +5464,7 @@ import (
 func main() {
 
     headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
         "Accept": []string{"application/json"},
         "Authorization": []string{"Bearer JWT"},
         
@@ -4906,6 +5483,7 @@ func main() {
 
 ```javascript
 var headers = {
+  'Content-Type':'application/json',
   'Accept':'application/json',
   'Authorization':'Bearer JWT'
 
@@ -4914,7 +5492,7 @@ var headers = {
 $.ajax({
   url: 'http://aukai.io/user/',
   method: 'get',
-  data: '?id=0&username=string&email=string',
+
   headers: headers,
   success: function(data) {
     console.log(JSON.stringify(data));
@@ -4926,12 +5504,13 @@ $.ajax({
 ```python
 import requests
 headers = {
+  'Content-Type': 'application/json',
   'Accept': 'application/json',
   'Authorization': 'Bearer JWT'
 }
 
 r = requests.get('http://aukai.io/user/', params={
-  'id': '0',  'username': 'string',  'email': 'string'
+
 }, headers = headers)
 
 print r.json()
@@ -4943,16 +5522,14 @@ require 'rest-client'
 require 'json'
 
 headers = {
+  'Content-Type' => 'application/json',
   'Accept' => 'application/json',
   'Authorization' => 'Bearer JWT'
 }
 
 result = RestClient.get 'http://aukai.io/user/',
   params: {
-  'id' => 'integer',
-'username' => 'string',
-'email' => 'string'
-}, headers: headers
+  }, headers: headers
 
 p JSON.parse(result)
 
@@ -4962,13 +5539,21 @@ p JSON.parse(result)
 
 Retrieve a User, by one of its paramters: id, username, or email
 
+> Body parameter
+
+```json
+{
+  "email": "tanaka.suzuki@aukai.io",
+  "id": 1,
+  "username": "tanaka"
+}
+```
+
 <h3 id="get-user-parameters">Parameters</h3>
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
-|id|query|integer|true|User ID|
-|username|query|string|true|Username|
-|email|query|string|true|Email|
+|body|body|[api.UserQuery](#schemaapi.userquery)|true|user query|
 
 > Example responses
 
@@ -4976,26 +5561,14 @@ Retrieve a User, by one of its paramters: id, username, or email
 
 ```json
 {
-  "avatar": "string",
-  "company_id": 0,
+  "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+  "company_id": 1,
   "created_at": "2019-06-18T05:07:22Z",
   "deleted_at": "2019-06-18T05:07:22Z",
-  "email": "string",
+  "email": "tanaka.suzuki@aukai.dev",
   "id": 0,
-  "language": "string",
-  "name": "string",
-  "roles": [
-    {
-      "created_at": "2019-06-18T05:07:22Z",
-      "deleted_at": "2019-06-18T05:07:22Z",
-      "id": 0,
-      "name": "string",
-      "updated_at": "2019-06-18T05:07:22Z",
-      "users": [
-        null
-      ]
-    }
-  ],
+  "language": "ja",
+  "name": "Tanaka Suzuki",
   "updated_at": "2019-06-18T05:07:22Z",
   "username": "string"
 }
@@ -5009,7 +5582,164 @@ Retrieve a User, by one of its paramters: id, username, or email
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-ApiKeyAuth
+ApiKeyAuth, None
+</aside>
+
+## Create or Updated User
+
+> Code samples
+
+```http
+POST http://aukai.io/user/ HTTP/1.1
+Host: aukai.io
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X POST http://aukai.io/user/ \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "http://aukai.io/user/", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/user/',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('http://aukai.io/user/', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'http://aukai.io/user/',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`POST /user/`
+
+Create, or Update a User. If a user ID is provided that user
+will be updated assuming the auth user has the necessary role,
+or is the same user.
+
+> Body parameter
+
+```json
+{
+  "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+  "company_id": 1,
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
+  "email": "tanaka.suzuki@aukai.dev",
+  "id": 0,
+  "language": "ja",
+  "name": "Tanaka Suzuki",
+  "updated_at": "2019-06-18T05:07:22Z",
+  "username": "string"
+}
+```
+
+<h3 id="create-or-updated-user-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[model.User](#schemamodel.user)|true|the user to create or update|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+  "company_id": 1,
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
+  "email": "tanaka.suzuki@aukai.dev",
+  "id": 0,
+  "language": "ja",
+  "name": "Tanaka Suzuki",
+  "updated_at": "2019-06-18T05:07:22Z",
+  "username": "string"
+}
+```
+
+<h3 id="create-or-updated-user-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[model.User](#schemamodel.user)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+None
 </aside>
 
 ## List Auth User Casbin Roles
@@ -5126,8 +5856,9 @@ Provides list of Casbin roles for the authenticated user
 
 <h3 id="list-auth-user-casbin-roles-responseschema">Response Schema</h3>
 
-<aside class="success">
-This operation does not require authentication
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+None
 </aside>
 
 ## Auth User Information
@@ -5232,26 +5963,14 @@ Provides information about the authenticated user
 
 ```json
 {
-  "avatar": "string",
-  "company_id": 0,
+  "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+  "company_id": 1,
   "created_at": "2019-06-18T05:07:22Z",
   "deleted_at": "2019-06-18T05:07:22Z",
-  "email": "string",
+  "email": "tanaka.suzuki@aukai.dev",
   "id": 0,
-  "language": "string",
-  "name": "string",
-  "roles": [
-    {
-      "created_at": "2019-06-18T05:07:22Z",
-      "deleted_at": "2019-06-18T05:07:22Z",
-      "id": 0,
-      "name": "string",
-      "updated_at": "2019-06-18T05:07:22Z",
-      "users": [
-        null
-      ]
-    }
-  ],
+  "language": "ja",
+  "name": "Tanaka Suzuki",
   "updated_at": "2019-06-18T05:07:22Z",
   "username": "string"
 }
@@ -5262,9 +5981,13 @@ Provides information about the authenticated user
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[model.User](#schemamodel.user)|
+|404|[Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)|Not Found|None|
 
-<aside class="success">
-This operation does not require authentication
+<h3 id="auth-user-information-responseschema">Response Schema</h3>
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+None
 </aside>
 
 ## List Auth User Roles
@@ -5377,17 +6100,14 @@ Provides list of roles for the authenticated user
     "updated_at": "2019-06-18T05:07:22Z",
     "users": [
       {
-        "avatar": "string",
-        "company_id": 0,
+        "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+        "company_id": 1,
         "created_at": "2019-06-18T05:07:22Z",
         "deleted_at": "2019-06-18T05:07:22Z",
-        "email": "string",
+        "email": "tanaka.suzuki@aukai.dev",
         "id": 0,
-        "language": "string",
-        "name": "string",
-        "roles": [
-          null
-        ],
+        "language": "ja",
+        "name": "Tanaka Suzuki",
         "updated_at": "2019-06-18T05:07:22Z",
         "username": "string"
       }
@@ -5423,12 +6143,166 @@ Status Code **200**
 |»» id|integer|false|none|none|
 |»» language|string|false|none|none|
 |»» name|string|true|none|none|
-|»» roles|[[model.Role](#schemamodel.role)]|false|none|none|
 |»» updated_at|string|false|none|none|
 |»» username|string|true|none|none|
 
-<aside class="success">
-This operation does not require authentication
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+None
+</aside>
+
+## Delete User
+
+> Code samples
+
+```http
+DELETE http://aukai.io/user/{id} HTTP/1.1
+Host: aukai.io
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X DELETE http://aukai.io/user/{id} \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer JWT'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer JWT"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("DELETE", "http://aukai.io/user/{id}", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'Authorization':'Bearer JWT'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/user/{id}',
+  method: 'delete',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer JWT'
+}
+
+r = requests.delete('http://aukai.io/user/{id}', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer JWT'
+}
+
+result = RestClient.delete 'http://aukai.io/user/{id}',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`DELETE /user/{id}`
+
+Delete a User by ID
+
+> Body parameter
+
+```json
+{
+  "email": "tanaka.suzuki@aukai.io",
+  "id": 1,
+  "username": "tanaka"
+}
+```
+
+<h3 id="delete-user-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|id|path|integer|true|User ID|
+|body|body|[api.UserQuery](#schemaapi.userquery)|false|user query|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+  "company_id": 1,
+  "created_at": "2019-06-18T05:07:22Z",
+  "deleted_at": "2019-06-18T05:07:22Z",
+  "email": "tanaka.suzuki@aukai.dev",
+  "id": 0,
+  "language": "ja",
+  "name": "Tanaka Suzuki",
+  "updated_at": "2019-06-18T05:07:22Z",
+  "username": "string"
+}
+```
+
+<h3 id="delete-user-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|The deleted user|[model.User](#schemamodel.user)|
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
 </aside>
 
 ## List Users
@@ -5539,26 +6413,14 @@ Lists Users
 ```json
 [
   {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   }
@@ -5586,13 +6448,6 @@ Status Code **200**
 |» id|integer|false|none|none|
 |» language|string|false|none|none|
 |» name|string|true|none|none|
-|» roles|[[model.Role](#schemamodel.role)]|false|none|none|
-|»» created_at|string|false|none|none|
-|»» deleted_at|string|false|none|none|
-|»» id|integer|false|none|none|
-|»» name|string|true|none|none|
-|»» updated_at|string|false|none|none|
-|»» users|[[model.User](#schemamodel.user)]|false|none|none|
 |» updated_at|string|false|none|none|
 |» username|string|true|none|none|
 
@@ -5842,11 +6697,11 @@ Lists WarehouseAttrs
     "desc_en": "string",
     "desc_ja": "string",
     "id": 0,
-    "key": "string",
-    "type": "string",
+    "key": "temp.const",
+    "type": "feature",
     "updated_at": "2019-06-18T05:07:22Z",
-    "value_en": "string",
-    "value_ja": "string"
+    "value_en": "Temperature Controlled",
+    "value_ja": "定温倉庫"
   }
 ]
 ```
@@ -5996,11 +6851,11 @@ Create a WarehouseAttr
   "desc_en": "string",
   "desc_ja": "string",
   "id": 0,
-  "key": "string",
-  "type": "string",
+  "key": "temp.const",
+  "type": "feature",
   "updated_at": "2019-06-18T05:07:22Z",
-  "value_en": "string",
-  "value_ja": "string"
+  "value_en": "Temperature Controlled",
+  "value_ja": "定温倉庫"
 }
 ```
 
@@ -6021,11 +6876,11 @@ Create a WarehouseAttr
   "desc_en": "string",
   "desc_ja": "string",
   "id": 0,
-  "key": "string",
-  "type": "string",
+  "key": "temp.const",
+  "type": "feature",
   "updated_at": "2019-06-18T05:07:22Z",
-  "value_en": "string",
-  "value_ja": "string"
+  "value_en": "Temperature Controlled",
+  "value_ja": "定温倉庫"
 }
 ```
 
@@ -6152,11 +7007,11 @@ Retrieve a WarehouseAttr
   "desc_en": "string",
   "desc_ja": "string",
   "id": 0,
-  "key": "string",
-  "type": "string",
+  "key": "temp.const",
+  "type": "feature",
   "updated_at": "2019-06-18T05:07:22Z",
-  "value_en": "string",
-  "value_ja": "string"
+  "value_en": "Temperature Controlled",
+  "value_ja": "定温倉庫"
 }
 ```
 
@@ -6287,11 +7142,11 @@ Update attributes of a WarehouseAttr
   "desc_en": "string",
   "desc_ja": "string",
   "id": 0,
-  "key": "string",
-  "type": "string",
+  "key": "temp.const",
+  "type": "feature",
   "updated_at": "2019-06-18T05:07:22Z",
-  "value_en": "string",
-  "value_ja": "string"
+  "value_en": "Temperature Controlled",
+  "value_ja": "定温倉庫"
 }
 ```
 
@@ -6313,11 +7168,11 @@ Update attributes of a WarehouseAttr
   "desc_en": "string",
   "desc_ja": "string",
   "id": 0,
-  "key": "string",
-  "type": "string",
+  "key": "temp.const",
+  "type": "feature",
   "updated_at": "2019-06-18T05:07:22Z",
-  "value_en": "string",
-  "value_ja": "string"
+  "value_en": "Temperature Controlled",
+  "value_ja": "定温倉庫"
 }
 ```
 
@@ -6450,11 +7305,11 @@ Delete a WarehouseAttr by ID
   "desc_en": "string",
   "desc_ja": "string",
   "id": 0,
-  "key": "string",
-  "type": "string",
+  "key": "temp.const",
+  "type": "feature",
   "updated_at": "2019-06-18T05:07:22Z",
-  "value_en": "string",
-  "value_ja": "string"
+  "value_en": "Temperature Controlled",
+  "value_ja": "定温倉庫"
 }
 ```
 
@@ -6630,36 +7485,24 @@ Lists Warehouses
         "desc_en": "string",
         "desc_ja": "string",
         "id": 0,
-        "key": "string",
-        "type": "string",
+        "key": "temp.const",
+        "type": "feature",
         "updated_at": "2019-06-18T05:07:22Z",
-        "value_en": "string",
-        "value_ja": "string"
+        "value_en": "Temperature Controlled",
+        "value_ja": "定温倉庫"
       }
     ],
     "company_id": 0,
     "created_at": "2019-06-18T05:07:22Z",
     "created_by": {
-      "avatar": "string",
-      "company_id": 0,
+      "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+      "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "string",
+      "email": "tanaka.suzuki@aukai.dev",
       "id": 0,
-      "language": "string",
-      "name": "string",
-      "roles": [
-        {
-          "created_at": "2019-06-18T05:07:22Z",
-          "deleted_at": "2019-06-18T05:07:22Z",
-          "id": 0,
-          "name": "string",
-          "updated_at": "2019-06-18T05:07:22Z",
-          "users": [
-            null
-          ]
-        }
-      ],
+      "language": "ja",
+      "name": "Tanaka Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -6689,26 +7532,14 @@ Lists Warehouses
     "type": "string",
     "updated_at": "2019-06-18T05:07:22Z",
     "updated_by": {
-      "avatar": "string",
-      "company_id": 0,
+      "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+      "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "string",
+      "email": "tanaka.suzuki@aukai.dev",
       "id": 0,
-      "language": "string",
-      "name": "string",
-      "roles": [
-        {
-          "created_at": "2019-06-18T05:07:22Z",
-          "deleted_at": "2019-06-18T05:07:22Z",
-          "id": 0,
-          "name": "string",
-          "updated_at": "2019-06-18T05:07:22Z",
-          "users": [
-            null
-          ]
-        }
-      ],
+      "language": "ja",
+      "name": "Tanaka Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -6773,13 +7604,6 @@ Status Code **200**
 |»» id|integer|false|none|none|
 |»» language|string|false|none|none|
 |»» name|string|true|none|none|
-|»» roles|[[model.Role](#schemamodel.role)]|false|none|none|
-|»»» created_at|string|false|none|none|
-|»»» deleted_at|string|false|none|none|
-|»»» id|integer|false|none|none|
-|»»» name|string|true|none|none|
-|»»» updated_at|string|false|none|none|
-|»»» users|[[model.User](#schemamodel.user)]|false|none|none|
 |»» updated_at|string|false|none|none|
 |»» username|string|true|none|none|
 |» deleted_at|string|false|none|none|
@@ -6974,36 +7798,24 @@ Create a Warehouse
       "desc_en": "string",
       "desc_ja": "string",
       "id": 0,
-      "key": "string",
-      "type": "string",
+      "key": "temp.const",
+      "type": "feature",
       "updated_at": "2019-06-18T05:07:22Z",
-      "value_en": "string",
-      "value_ja": "string"
+      "value_en": "Temperature Controlled",
+      "value_ja": "定温倉庫"
     }
   ],
   "company_id": 0,
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -7033,26 +7845,14 @@ Create a Warehouse
   "type": "string",
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -7121,36 +7921,24 @@ Create a Warehouse
       "desc_en": "string",
       "desc_ja": "string",
       "id": 0,
-      "key": "string",
-      "type": "string",
+      "key": "temp.const",
+      "type": "feature",
       "updated_at": "2019-06-18T05:07:22Z",
-      "value_en": "string",
-      "value_ja": "string"
+      "value_en": "Temperature Controlled",
+      "value_ja": "定温倉庫"
     }
   ],
   "company_id": 0,
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -7180,26 +7968,14 @@ Create a Warehouse
   "type": "string",
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -7376,36 +8152,24 @@ Retrieve a Warehouse
       "desc_en": "string",
       "desc_ja": "string",
       "id": 0,
-      "key": "string",
-      "type": "string",
+      "key": "temp.const",
+      "type": "feature",
       "updated_at": "2019-06-18T05:07:22Z",
-      "value_en": "string",
-      "value_ja": "string"
+      "value_en": "Temperature Controlled",
+      "value_ja": "定温倉庫"
     }
   ],
   "company_id": 0,
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -7435,26 +8199,14 @@ Retrieve a Warehouse
   "type": "string",
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -7635,36 +8387,24 @@ Update attributes of a Warehouse
       "desc_en": "string",
       "desc_ja": "string",
       "id": 0,
-      "key": "string",
-      "type": "string",
+      "key": "temp.const",
+      "type": "feature",
       "updated_at": "2019-06-18T05:07:22Z",
-      "value_en": "string",
-      "value_ja": "string"
+      "value_en": "Temperature Controlled",
+      "value_ja": "定温倉庫"
     }
   ],
   "company_id": 0,
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -7694,26 +8434,14 @@ Update attributes of a Warehouse
   "type": "string",
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -7783,36 +8511,24 @@ Update attributes of a Warehouse
       "desc_en": "string",
       "desc_ja": "string",
       "id": 0,
-      "key": "string",
-      "type": "string",
+      "key": "temp.const",
+      "type": "feature",
       "updated_at": "2019-06-18T05:07:22Z",
-      "value_en": "string",
-      "value_ja": "string"
+      "value_en": "Temperature Controlled",
+      "value_ja": "定温倉庫"
     }
   ],
   "company_id": 0,
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -7842,26 +8558,14 @@ Update attributes of a Warehouse
   "type": "string",
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -8044,36 +8748,24 @@ Delete a Warehouse by ID
       "desc_en": "string",
       "desc_ja": "string",
       "id": 0,
-      "key": "string",
-      "type": "string",
+      "key": "temp.const",
+      "type": "feature",
       "updated_at": "2019-06-18T05:07:22Z",
-      "value_en": "string",
-      "value_ja": "string"
+      "value_en": "Temperature Controlled",
+      "value_ja": "定温倉庫"
     }
   ],
   "company_id": 0,
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -8103,26 +8795,14 @@ Delete a Warehouse by ID
   "type": "string",
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -8306,36 +8986,24 @@ Provides a list of Warehouse objects ordered as a tree
         "desc_en": "string",
         "desc_ja": "string",
         "id": 0,
-        "key": "string",
-        "type": "string",
+        "key": "temp.const",
+        "type": "feature",
         "updated_at": "2019-06-18T05:07:22Z",
-        "value_en": "string",
-        "value_ja": "string"
+        "value_en": "Temperature Controlled",
+        "value_ja": "定温倉庫"
       }
     ],
     "company_id": 0,
     "created_at": "2019-06-18T05:07:22Z",
     "created_by": {
-      "avatar": "string",
-      "company_id": 0,
+      "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+      "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "string",
+      "email": "tanaka.suzuki@aukai.dev",
       "id": 0,
-      "language": "string",
-      "name": "string",
-      "roles": [
-        {
-          "created_at": "2019-06-18T05:07:22Z",
-          "deleted_at": "2019-06-18T05:07:22Z",
-          "id": 0,
-          "name": "string",
-          "updated_at": "2019-06-18T05:07:22Z",
-          "users": [
-            null
-          ]
-        }
-      ],
+      "language": "ja",
+      "name": "Tanaka Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -8365,26 +9033,14 @@ Provides a list of Warehouse objects ordered as a tree
     "type": "string",
     "updated_at": "2019-06-18T05:07:22Z",
     "updated_by": {
-      "avatar": "string",
-      "company_id": 0,
+      "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+      "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "string",
+      "email": "tanaka.suzuki@aukai.dev",
       "id": 0,
-      "language": "string",
-      "name": "string",
-      "roles": [
-        {
-          "created_at": "2019-06-18T05:07:22Z",
-          "deleted_at": "2019-06-18T05:07:22Z",
-          "id": 0,
-          "name": "string",
-          "updated_at": "2019-06-18T05:07:22Z",
-          "users": [
-            null
-          ]
-        }
-      ],
+      "language": "ja",
+      "name": "Tanaka Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -8408,6 +9064,225 @@ ApiKeyAuth
 </aside>
 
 # Schemas
+
+<h2 id="tocSapi.authstatus">api.AuthStatus</h2>
+
+<a id="schemaapi.authstatus"></a>
+
+```json
+{
+  "status": "string",
+  "token": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|status|string|false|none|none|
+|token|string|false|none|none|
+
+<h2 id="tocSapi.authtoken">api.AuthToken</h2>
+
+<a id="schemaapi.authtoken"></a>
+
+```json
+{
+  "accessToken": {
+    "expiresAt": 0,
+    "token": "string"
+  },
+  "refreshToken": {
+    "expiresAt": 0,
+    "token": "string"
+  },
+  "status": "string",
+  "user": {
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "email": "tanaka.suzuki@aukai.dev",
+    "id": 0,
+    "language": "ja",
+    "name": "Tanaka Suzuki",
+    "updated_at": "2019-06-18T05:07:22Z",
+    "username": "string"
+  }
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|accessToken|[api.SimpleAuthToken](#schemaapi.simpleauthtoken)|false|none|none|
+|refreshToken|[api.SimpleAuthToken](#schemaapi.simpleauthtoken)|false|none|none|
+|status|string|false|none|none|
+|user|[model.User](#schemamodel.user)|false|none|none|
+
+<h2 id="tocSapi.contactrequest">api.ContactRequest</h2>
+
+<a id="schemaapi.contactrequest"></a>
+
+```json
+{
+  "company": "XYZ Corporation",
+  "email": "user@aukai.dev",
+  "firstName": "Taro",
+  "lastName": "Suzuki",
+  "message": "string",
+  "phone": "+81 03-0000-0000"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|company|string|true|none|Company of the contact person|
+|email|string|true|none|Email of the contact person|
+|firstName|string|true|none|FirstName of the contact person|
+|lastName|string|true|none|LastName of the contact person|
+|message|string|false|none|Message of the person included (optional)|
+|phone|string|true|none|Phone number of the contact person; can include international prefix; otherwise will be assumed to be in Japan|
+
+<h2 id="tocSapi.metrics">api.Metrics</h2>
+
+<a id="schemaapi.metrics"></a>
+
+```json
+{
+  "companies": 200,
+  "sqmt": 100000000,
+  "users": 4000,
+  "warehouses": 1000
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|companies|integer|false|none|none|
+|sqmt|integer|false|none|none|
+|users|integer|false|none|none|
+|warehouses|integer|false|none|none|
+
+<h2 id="tocSapi.refreshtokendata">api.RefreshTokenData</h2>
+
+<a id="schemaapi.refreshtokendata"></a>
+
+```json
+{
+  "token": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|token|string|false|none|none|
+
+<h2 id="tocSapi.simpleauthtoken">api.SimpleAuthToken</h2>
+
+<a id="schemaapi.simpleauthtoken"></a>
+
+```json
+{
+  "expiresAt": 0,
+  "token": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|expiresAt|integer|false|none|none|
+|token|string|false|none|none|
+
+<h2 id="tocSapi.userdata">api.UserData</h2>
+
+<a id="schemaapi.userdata"></a>
+
+```json
+{
+  "avatar": "string",
+  "email": "string",
+  "id": 0,
+  "language": "string",
+  "name": "string",
+  "password": "string",
+  "roles": [
+    {
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
+      "id": 0,
+      "name": "string",
+      "updated_at": "2019-06-18T05:07:22Z",
+      "users": [
+        {
+          "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+          "company_id": 1,
+          "created_at": "2019-06-18T05:07:22Z",
+          "deleted_at": "2019-06-18T05:07:22Z",
+          "email": "tanaka.suzuki@aukai.dev",
+          "id": 0,
+          "language": "ja",
+          "name": "Tanaka Suzuki",
+          "updated_at": "2019-06-18T05:07:22Z",
+          "username": "string"
+        }
+      ]
+    }
+  ],
+  "username": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|avatar|string|false|none|none|
+|email|string|true|none|FIXME: must be unique|
+|id|integer|false|none|none|
+|language|string|false|none|FIXME: validate is one of en_US, ja_JP|
+|name|string|true|none|none|
+|password|string|false|none|none|
+|roles|[[model.Role](#schemamodel.role)]|false|none|none|
+|username|string|true|none|FIXME: must be unique|
+
+<h2 id="tocSapi.userquery">api.UserQuery</h2>
+
+<a id="schemaapi.userquery"></a>
+
+```json
+{
+  "email": "tanaka.suzuki@aukai.io",
+  "id": 1,
+  "username": "tanaka"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|email|string|false|none|none|
+|id|integer|false|none|none|
+|username|string|false|none|none|
 
 <h2 id="tocSapi.version">api.version</h2>
 
@@ -8539,26 +9414,14 @@ ApiKeyAuth
   },
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -8584,26 +9447,14 @@ ApiKeyAuth
   ],
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -8637,29 +9488,17 @@ ApiKeyAuth
 ```json
 {
   "comment": "string",
-  "company_id": 0,
+  "company_id": 1,
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -8677,33 +9516,21 @@ ApiKeyAuth
     "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
   },
   "id": 0,
-  "status": "string",
+  "status": "requested",
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "warehouse_id": 0
+  "warehouse_id": 1
 }
 
 ```
@@ -8719,10 +9546,67 @@ ApiKeyAuth
 |deleted_at|string|false|none|none|
 |file|[storedfile.File](#schemastoredfile.file)|false|none|none|
 |id|integer|false|none|none|
-|status|string|false|none|none|
+|status|string|false|none|Status is the connection status for the Warehouse and Company|
 |updated_at|string|false|none|none|
 |updated_by|[model.User](#schemamodel.user)|false|none|none|
 |warehouse_id|integer|false|none|The Warehouse side of the network association.|
+
+<h2 id="tocSmodel.networkevent">model.NetworkEvent</h2>
+
+<a id="schemamodel.networkevent"></a>
+
+```json
+{
+  "comment": "Lorem Ipsum ...",
+  "created_at": "2019-06-18T05:07:22Z",
+  "created_by": {
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "email": "tanaka.suzuki@aukai.dev",
+    "id": 0,
+    "language": "ja",
+    "name": "Tanaka Suzuki",
+    "updated_at": "2019-06-18T05:07:22Z",
+    "username": "string"
+  },
+  "deleted_at": "2019-06-18T05:07:22Z",
+  "file": {
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "dir": "string",
+    "ext": "png",
+    "filename": "string",
+    "id": 1,
+    "mime_type": "image/png",
+    "ref": "df6301cfb58750fd8707611cea13e9b3",
+    "updated_at": "2019-06-18T05:07:22Z",
+    "url": "https://aukai.io/ref/df6301cfb58750fd8707611cea13e9b3/file"
+  },
+  "id": 0,
+  "network_assoc_id": 1,
+  "start": "requested",
+  "stop": "approved",
+  "updated_at": "2019-06-18T05:07:22Z"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|comment|string|false|none|Comment is a note attached to the change even by the user that initiates the chagne|
+|created_at|string|false|none|none|
+|created_by|[model.User](#schemamodel.user)|false|none|none|
+|deleted_at|string|false|none|none|
+|file|[storedfile.File](#schemastoredfile.file)|false|none|none|
+|id|integer|false|none|none|
+|network_assoc_id|integer|false|none|none|
+|start|string|false|none|StartState is the state of the Network connection before this change Event|
+|stop|string|false|none|StopState is the state of the Network connection after this change Event is applied|
+|updated_at|string|false|none|none|
 
 <h2 id="tocSmodel.photo">model.Photo</h2>
 
@@ -8774,17 +9658,14 @@ ApiKeyAuth
   "updated_at": "2019-06-18T05:07:22Z",
   "users": [
     {
-      "avatar": "string",
-      "company_id": 0,
+      "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+      "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "string",
+      "email": "tanaka.suzuki@aukai.dev",
       "id": 0,
-      "language": "string",
-      "name": "string",
-      "roles": [
-        null
-      ],
+      "language": "ja",
+      "name": "Tanaka Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     }
@@ -8810,26 +9691,14 @@ ApiKeyAuth
 
 ```json
 {
-  "avatar": "string",
-  "company_id": 0,
+  "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+  "company_id": 1,
   "created_at": "2019-06-18T05:07:22Z",
   "deleted_at": "2019-06-18T05:07:22Z",
-  "email": "string",
+  "email": "tanaka.suzuki@aukai.dev",
   "id": 0,
-  "language": "string",
-  "name": "string",
-  "roles": [
-    {
-      "created_at": "2019-06-18T05:07:22Z",
-      "deleted_at": "2019-06-18T05:07:22Z",
-      "id": 0,
-      "name": "string",
-      "updated_at": "2019-06-18T05:07:22Z",
-      "users": [
-        null
-      ]
-    }
-  ],
+  "language": "ja",
+  "name": "Tanaka Suzuki",
   "updated_at": "2019-06-18T05:07:22Z",
   "username": "string"
 }
@@ -8848,7 +9717,6 @@ ApiKeyAuth
 |id|integer|false|none|none|
 |language|string|false|none|none|
 |name|string|true|none|none|
-|roles|[[model.Role](#schemamodel.role)]|false|none|none|
 |updated_at|string|false|none|none|
 |username|string|true|none|none|
 
@@ -8907,36 +9775,24 @@ ApiKeyAuth
       "desc_en": "string",
       "desc_ja": "string",
       "id": 0,
-      "key": "string",
-      "type": "string",
+      "key": "temp.const",
+      "type": "feature",
       "updated_at": "2019-06-18T05:07:22Z",
-      "value_en": "string",
-      "value_ja": "string"
+      "value_en": "Temperature Controlled",
+      "value_ja": "定温倉庫"
     }
   ],
   "company_id": 0,
   "created_at": "2019-06-18T05:07:22Z",
   "created_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -8966,26 +9822,14 @@ ApiKeyAuth
   "type": "string",
   "updated_at": "2019-06-18T05:07:22Z",
   "updated_by": {
-    "avatar": "string",
-    "company_id": 0,
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "string",
+    "email": "tanaka.suzuki@aukai.dev",
     "id": 0,
-    "language": "string",
-    "name": "string",
-    "roles": [
-      {
-        "created_at": "2019-06-18T05:07:22Z",
-        "deleted_at": "2019-06-18T05:07:22Z",
-        "id": 0,
-        "name": "string",
-        "updated_at": "2019-06-18T05:07:22Z",
-        "users": [
-          null
-        ]
-      }
-    ],
+    "language": "ja",
+    "name": "Tanaka Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -9029,11 +9873,11 @@ ApiKeyAuth
   "desc_en": "string",
   "desc_ja": "string",
   "id": 0,
-  "key": "string",
-  "type": "string",
+  "key": "temp.const",
+  "type": "feature",
   "updated_at": "2019-06-18T05:07:22Z",
-  "value_en": "string",
-  "value_ja": "string"
+  "value_en": "Temperature Controlled",
+  "value_ja": "定温倉庫"
 }
 
 ```
@@ -9109,36 +9953,24 @@ ApiKeyAuth
         "desc_en": "string",
         "desc_ja": "string",
         "id": 0,
-        "key": "string",
-        "type": "string",
+        "key": "temp.const",
+        "type": "feature",
         "updated_at": "2019-06-18T05:07:22Z",
-        "value_en": "string",
-        "value_ja": "string"
+        "value_en": "Temperature Controlled",
+        "value_ja": "定温倉庫"
       }
     ],
     "company_id": 0,
     "created_at": "2019-06-18T05:07:22Z",
     "created_by": {
-      "avatar": "string",
-      "company_id": 0,
+      "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+      "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "string",
+      "email": "tanaka.suzuki@aukai.dev",
       "id": 0,
-      "language": "string",
-      "name": "string",
-      "roles": [
-        {
-          "created_at": "2019-06-18T05:07:22Z",
-          "deleted_at": "2019-06-18T05:07:22Z",
-          "id": 0,
-          "name": "string",
-          "updated_at": "2019-06-18T05:07:22Z",
-          "users": [
-            null
-          ]
-        }
-      ],
+      "language": "ja",
+      "name": "Tanaka Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -9168,26 +10000,14 @@ ApiKeyAuth
     "type": "string",
     "updated_at": "2019-06-18T05:07:22Z",
     "updated_by": {
-      "avatar": "string",
-      "company_id": 0,
+      "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+      "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "string",
+      "email": "tanaka.suzuki@aukai.dev",
       "id": 0,
-      "language": "string",
-      "name": "string",
-      "roles": [
-        {
-          "created_at": "2019-06-18T05:07:22Z",
-          "deleted_at": "2019-06-18T05:07:22Z",
-          "id": 0,
-          "name": "string",
-          "updated_at": "2019-06-18T05:07:22Z",
-          "users": [
-            null
-          ]
-        }
-      ],
+      "language": "ja",
+      "name": "Tanaka Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -9206,6 +10026,44 @@ ApiKeyAuth
 |---|---|---|---|---|
 |warehouse|[model.Warehouse](#schemamodel.warehouse)|false|none|none|
 |warehouses|[[model.WarehouseTree](#schemamodel.warehousetree)]|false|none|none|
+
+<h2 id="tocSplace.autocompletereq">place.AutoCompleteReq</h2>
+
+<a id="schemaplace.autocompletereq"></a>
+
+```json
+{
+  "address": "string",
+  "lang": "string",
+  "type": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|address|string|true|none|none|
+|lang|string|false|none|none|
+|type|string|false|none|none|
+
+<h2 id="tocSresource.notfounderror">resource.NotFoundError</h2>
+
+<a id="schemaresource.notfounderror"></a>
+
+```json
+{
+  "id": 1
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|id|integer|false|none|none|
 
 <h2 id="tocSstoredfile.file">storedfile.File</h2>
 

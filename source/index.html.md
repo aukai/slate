@@ -16,11 +16,14 @@ headingLevel: 2
 
 ---
 
-<h1 id="aukai-core-api">Aukai Core API v0.1</h1>
+<h1 id="aukai-core-api">Overview</h1>
 
 > Scroll down for code samples, example requests and responses. Select a language for code samples from the tabs above or the mobile navigation menu.
 
-The Auaki Core API provides programmatic access to your Auakai Warehouses and Logistics Assets
+The Auaki Core API provides programmatic access to your Auakai
+Warehouses and Logistics Assets
+
+API Version: v0.1
 
 Base URLs:
 
@@ -32,12 +35,370 @@ Base URLs:
 Email: <a href="mailto:api.support@aukai.io">API Support</a> Web: <a href="https://aukai.io/support#api">API Support</a> 
 License: <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a>
 
-# Authentication
+# Security
 
 * API Key (ApiKeyAuth)
     - Parameter Name: **Authorization**, in: header. 
 
-<h1 id="aukai-core-api-address">address</h1>
+<h1 id="aukai-core-api-authentication">Authentication</h1>
+
+Authenticated requests must contain a JWT in the Authorization HTTP Header. The JWT should be prefixed with "Bearer ". To obtain a JWT send user credentials (username and password) to the /auth/ endpoint. JWTs expire after a short period of time. Send a request with a JWT referesh token to the /auth/refresh/ endpoint to obtain a new JWT. Refresh tokens will expire after a longer period of time.  At that point a new JWT can only be obtained by authenticating with user credentials to the /auth/ endpoint.
+
+## Authenticate
+
+> Code samples
+
+```http
+POST http://aukai.io/auth/ HTTP/1.1
+Host: aukai.io
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X POST http://aukai.io/auth/ \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "http://aukai.io/auth/", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/auth/',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('http://aukai.io/auth/', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'http://aukai.io/auth/',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`POST /auth/`
+
+Authenticate a user by username:password credentials and
+receive a JSON Web Token to authenticate subsequent API
+requests.
+
+> Body parameter
+
+```json
+{
+  "avatar": "string",
+  "email": "string",
+  "id": 0,
+  "language": "string",
+  "name": "string",
+  "password": "string",
+  "roles": [
+    {
+      "created_at": "2019-06-18T05:07:22Z",
+      "deleted_at": "2019-06-18T05:07:22Z",
+      "id": 0,
+      "name": "user",
+      "updated_at": "2019-06-18T05:07:22Z",
+      "users": [
+        {
+          "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+          "company_id": 1,
+          "created_at": "2019-06-18T05:07:22Z",
+          "deleted_at": "2019-06-18T05:07:22Z",
+          "email": "taro.suzuki@aukai.dev",
+          "id": 0,
+          "language": "ja",
+          "name": "Taro Suzuki",
+          "updated_at": "2019-06-18T05:07:22Z",
+          "username": "string"
+        }
+      ]
+    }
+  ],
+  "username": "string"
+}
+```
+
+<h3 id="authenticate-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[api.UserData](#schemaapi.userdata)|true|username and password|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "accessToken": {
+    "expiresAt": 0,
+    "token": "string"
+  },
+  "refreshToken": {
+    "expiresAt": 0,
+    "token": "string"
+  },
+  "status": "string",
+  "user": {
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "email": "taro.suzuki@aukai.dev",
+    "id": 0,
+    "language": "ja",
+    "name": "Taro Suzuki",
+    "updated_at": "2019-06-18T05:07:22Z",
+    "username": "string"
+  }
+}
+```
+
+<h3 id="authenticate-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[api.AuthToken](#schemaapi.authtoken)|
+|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Authentication failed|[api.AuthStatus](#schemaapi.authstatus)|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|JWT could not be generated|[api.AuthStatus](#schemaapi.authstatus)|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+## Refresh JWT
+
+> Code samples
+
+```http
+POST http://aukai.io/auth/refresh HTTP/1.1
+Host: aukai.io
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X POST http://aukai.io/auth/refresh \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("POST", "http://aukai.io/auth/refresh", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/auth/refresh',
+  method: 'post',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.post('http://aukai.io/auth/refresh', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.post 'http://aukai.io/auth/refresh',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`POST /auth/refresh`
+
+Issues a new valid JSON Web Token if the provided Refresh Token
+is valid and has not expired.
+
+> Body parameter
+
+```json
+{
+  "token": "string"
+}
+```
+
+<h3 id="refresh-jwt-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[api.RefreshTokenData](#schemaapi.refreshtokendata)|true|refresh token provided by /auth/|
+
+> Example responses
+
+> 200 Response
+
+```json
+{
+  "accessToken": {
+    "expiresAt": 0,
+    "token": "string"
+  },
+  "refreshToken": {
+    "expiresAt": 0,
+    "token": "string"
+  },
+  "status": "string",
+  "user": {
+    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
+    "company_id": 1,
+    "created_at": "2019-06-18T05:07:22Z",
+    "deleted_at": "2019-06-18T05:07:22Z",
+    "email": "taro.suzuki@aukai.dev",
+    "id": 0,
+    "language": "ja",
+    "name": "Taro Suzuki",
+    "updated_at": "2019-06-18T05:07:22Z",
+    "username": "string"
+  }
+}
+```
+
+<h3 id="refresh-jwt-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[api.AuthToken](#schemaapi.authtoken)|
+|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Refresh token invalid or not provided|[api.AuthStatus](#schemaapi.authstatus)|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|JWT could not be generated|[api.AuthStatus](#schemaapi.authstatus)|
+
+### Response Headers
+
+|Status|Header|Type|Format|Description|
+|---|---|---|---|---|
+|200|Token|string||JSON Web Token|
+
+<aside class="success">
+This operation does not require authentication
+</aside>
+
+<h1 id="aukai-core-api-address">Address</h1>
 
 ## List Addresses
 
@@ -851,363 +1212,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 ApiKeyAuth
 </aside>
 
-<h1 id="aukai-core-api-auth">auth</h1>
-
-## Authenticate
-
-> Code samples
-
-```http
-POST http://aukai.io/auth/ HTTP/1.1
-Host: aukai.io
-Content-Type: application/json
-Accept: application/json
-
-```
-
-```shell
-# You can also use wget
-curl -X POST http://aukai.io/auth/ \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Content-Type": []string{"application/json"},
-        "Accept": []string{"application/json"},
-        
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "http://aukai.io/auth/", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```javascript
-var headers = {
-  'Content-Type':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://aukai.io/auth/',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.post('http://aukai.io/auth/', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json',
-  'Accept' => 'application/json'
-}
-
-result = RestClient.post 'http://aukai.io/auth/',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-`POST /auth/`
-
-Authenticate a user by username:password credentials and
-receive a JSON Web Token to authenticate subsequent API
-requests.
-
-> Body parameter
-
-```json
-{
-  "avatar": "string",
-  "email": "string",
-  "id": 0,
-  "language": "string",
-  "name": "string",
-  "password": "string",
-  "roles": [
-    {
-      "created_at": "2019-06-18T05:07:22Z",
-      "deleted_at": "2019-06-18T05:07:22Z",
-      "id": 0,
-      "name": "string",
-      "updated_at": "2019-06-18T05:07:22Z",
-      "users": [
-        {
-          "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
-          "company_id": 1,
-          "created_at": "2019-06-18T05:07:22Z",
-          "deleted_at": "2019-06-18T05:07:22Z",
-          "email": "tanaka.suzuki@aukai.dev",
-          "id": 0,
-          "language": "ja",
-          "name": "Tanaka Suzuki",
-          "updated_at": "2019-06-18T05:07:22Z",
-          "username": "string"
-        }
-      ]
-    }
-  ],
-  "username": "string"
-}
-```
-
-<h3 id="authenticate-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[api.UserData](#schemaapi.userdata)|true|username and password|
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "accessToken": {
-    "expiresAt": 0,
-    "token": "string"
-  },
-  "refreshToken": {
-    "expiresAt": 0,
-    "token": "string"
-  },
-  "status": "string",
-  "user": {
-    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
-    "company_id": 1,
-    "created_at": "2019-06-18T05:07:22Z",
-    "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
-    "id": 0,
-    "language": "ja",
-    "name": "Tanaka Suzuki",
-    "updated_at": "2019-06-18T05:07:22Z",
-    "username": "string"
-  }
-}
-```
-
-<h3 id="authenticate-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[api.AuthToken](#schemaapi.authtoken)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Authentication failed|[api.AuthStatus](#schemaapi.authstatus)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|JWT could not be generated|[api.AuthStatus](#schemaapi.authstatus)|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-## Refresh JWT
-
-> Code samples
-
-```http
-POST http://aukai.io/auth/refresh HTTP/1.1
-Host: aukai.io
-Content-Type: application/json
-Accept: application/json
-
-```
-
-```shell
-# You can also use wget
-curl -X POST http://aukai.io/auth/refresh \
-  -H 'Content-Type: application/json' \
-  -H 'Accept: application/json'
-
-```
-
-```go
-package main
-
-import (
-       "bytes"
-       "net/http"
-)
-
-func main() {
-
-    headers := map[string][]string{
-        "Content-Type": []string{"application/json"},
-        "Accept": []string{"application/json"},
-        
-    }
-
-    data := bytes.NewBuffer([]byte{jsonReq})
-    req, err := http.NewRequest("POST", "http://aukai.io/auth/refresh", data)
-    req.Header = headers
-
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    // ...
-}
-
-```
-
-```javascript
-var headers = {
-  'Content-Type':'application/json',
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'http://aukai.io/auth/refresh',
-  method: 'post',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Content-Type': 'application/json',
-  'Accept': 'application/json'
-}
-
-r = requests.post('http://aukai.io/auth/refresh', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-```ruby
-require 'rest-client'
-require 'json'
-
-headers = {
-  'Content-Type' => 'application/json',
-  'Accept' => 'application/json'
-}
-
-result = RestClient.post 'http://aukai.io/auth/refresh',
-  params: {
-  }, headers: headers
-
-p JSON.parse(result)
-
-```
-
-`POST /auth/refresh`
-
-Issues a new valid JSON Web Token if the provided Refresh Token
-is valid and has not expired.
-
-> Body parameter
-
-```json
-{
-  "token": "string"
-}
-```
-
-<h3 id="refresh-jwt-parameters">Parameters</h3>
-
-|Name|In|Type|Required|Description|
-|---|---|---|---|---|
-|body|body|[api.RefreshTokenData](#schemaapi.refreshtokendata)|true|refresh token provided by /auth/|
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "accessToken": {
-    "expiresAt": 0,
-    "token": "string"
-  },
-  "refreshToken": {
-    "expiresAt": 0,
-    "token": "string"
-  },
-  "status": "string",
-  "user": {
-    "avatar": "https://www.gravatar.com/avatar/7643816c41a8ad0ba7e7ba48ea1e20a8.jpg?d=&r=g&s=80?imageView2/1/w/80/h/80",
-    "company_id": 1,
-    "created_at": "2019-06-18T05:07:22Z",
-    "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
-    "id": 0,
-    "language": "ja",
-    "name": "Tanaka Suzuki",
-    "updated_at": "2019-06-18T05:07:22Z",
-    "username": "string"
-  }
-}
-```
-
-<h3 id="refresh-jwt-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|OK|[api.AuthToken](#schemaapi.authtoken)|
-|401|[Unauthorized](https://tools.ietf.org/html/rfc7235#section-3.1)|Refresh token invalid or not provided|[api.AuthStatus](#schemaapi.authstatus)|
-|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|JWT could not be generated|[api.AuthStatus](#schemaapi.authstatus)|
-
-### Response Headers
-
-|Status|Header|Type|Format|Description|
-|---|---|---|---|---|
-|200|Token|string||JSON Web Token|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
-<h1 id="aukai-core-api-company">company</h1>
+<h1 id="aukai-core-api-company">Company</h1>
 
 ## List Companies
 
@@ -1365,10 +1370,10 @@ Lists Companies
       "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "tanaka.suzuki@aukai.dev",
+      "email": "taro.suzuki@aukai.dev",
       "id": 0,
       "language": "ja",
-      "name": "Tanaka Suzuki",
+      "name": "Taro Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -1398,10 +1403,10 @@ Lists Companies
       "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "tanaka.suzuki@aukai.dev",
+      "email": "taro.suzuki@aukai.dev",
       "id": 0,
       "language": "ja",
-      "name": "Tanaka Suzuki",
+      "name": "Taro Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -1641,10 +1646,10 @@ Create a Company
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -1674,10 +1679,10 @@ Create a Company
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -1745,10 +1750,10 @@ Create a Company
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -1778,10 +1783,10 @@ Create a Company
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -1955,10 +1960,10 @@ Retrieve a Company
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -1988,10 +1993,10 @@ Retrieve a Company
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -2169,10 +2174,10 @@ Update attributes of a Company
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -2202,10 +2207,10 @@ Update attributes of a Company
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -2274,10 +2279,10 @@ Update attributes of a Company
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -2307,10 +2312,10 @@ Update attributes of a Company
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -2490,10 +2495,10 @@ Delete a Company by ID
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -2523,10 +2528,10 @@ Delete a Company by ID
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -2722,10 +2727,10 @@ Provides a list of Warehouse objects  associated with a company
       "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "tanaka.suzuki@aukai.dev",
+      "email": "taro.suzuki@aukai.dev",
       "id": 0,
       "language": "ja",
-      "name": "Tanaka Suzuki",
+      "name": "Taro Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -2759,10 +2764,10 @@ Provides a list of Warehouse objects  associated with a company
       "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "tanaka.suzuki@aukai.dev",
+      "email": "taro.suzuki@aukai.dev",
       "id": 0,
       "language": "ja",
-      "name": "Tanaka Suzuki",
+      "name": "Taro Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -2859,7 +2864,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 ApiKeyAuth
 </aside>
 
-<h1 id="aukai-core-api-contact">contact</h1>
+<h1 id="aukai-core-api-contact">Contact</h1>
 
 ## Create Contact Request
 
@@ -2986,7 +2991,7 @@ Create a Contact Request and notify Aukai staff.
 This operation does not require authentication
 </aside>
 
-<h1 id="aukai-core-api-metrics">metrics</h1>
+<h1 id="aukai-core-api-metrics">Metrics</h1>
 
 ## Get system metrics
 
@@ -3114,7 +3119,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 ApiKeyAuth
 </aside>
 
-<h1 id="aukai-core-api-network">network</h1>
+<h1 id="aukai-core-api-network">Network</h1>
 
 ## List Networks
 
@@ -3234,10 +3239,10 @@ Lists Networks
       "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "tanaka.suzuki@aukai.dev",
+      "email": "taro.suzuki@aukai.dev",
       "id": 0,
       "language": "ja",
-      "name": "Tanaka Suzuki",
+      "name": "Taro Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -3262,10 +3267,10 @@ Lists Networks
       "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "tanaka.suzuki@aukai.dev",
+      "email": "taro.suzuki@aukai.dev",
       "id": 0,
       "language": "ja",
-      "name": "Tanaka Suzuki",
+      "name": "Taro Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -3456,10 +3461,10 @@ Create a Network
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -3484,10 +3489,10 @@ Create a Network
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -3515,10 +3520,10 @@ Create a Network
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -3543,10 +3548,10 @@ Create a Network
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -3682,10 +3687,10 @@ Retrieve a Network
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -3710,10 +3715,10 @@ Retrieve a Network
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -3853,10 +3858,10 @@ Update attributes of a Network
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -3881,10 +3886,10 @@ Update attributes of a Network
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -3913,10 +3918,10 @@ Update attributes of a Network
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -3941,10 +3946,10 @@ Update attributes of a Network
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -4086,10 +4091,10 @@ Delete a Network by ID
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -4114,10 +4119,10 @@ Delete a Network by ID
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -4253,10 +4258,10 @@ actual Network
       "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "tanaka.suzuki@aukai.dev",
+      "email": "taro.suzuki@aukai.dev",
       "id": 0,
       "language": "ja",
-      "name": "Tanaka Suzuki",
+      "name": "Taro Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -4332,7 +4337,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 ApiKeyAuth
 </aside>
 
-<h1 id="aukai-core-api-places">places</h1>
+<h1 id="aukai-core-api-places">Places</h1>
 
 ## Address AutoComplete
 
@@ -4918,7 +4923,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 ApiKeyAuth
 </aside>
 
-<h1 id="aukai-core-api-file">file</h1>
+<h1 id="aukai-core-api-file">File</h1>
 
 ## Get File contents by Reference
 
@@ -5753,7 +5758,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 ApiKeyAuth
 </aside>
 
-<h1 id="aukai-core-api-role">role</h1>
+<h1 id="aukai-core-api-role">Role</h1>
 
 ## List Roles
 
@@ -5879,7 +5884,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 ApiKeyAuth
 </aside>
 
-<h1 id="aukai-core-api-user">user</h1>
+<h1 id="aukai-core-api-user">User</h1>
 
 ## Get User
 
@@ -6015,10 +6020,10 @@ Retrieve a User, by one of its paramters: id, username, or email
   "company_id": 1,
   "created_at": "2019-06-18T05:07:22Z",
   "deleted_at": "2019-06-18T05:07:22Z",
-  "email": "tanaka.suzuki@aukai.dev",
+  "email": "taro.suzuki@aukai.dev",
   "id": 0,
   "language": "ja",
-  "name": "Tanaka Suzuki",
+  "name": "Taro Suzuki",
   "updated_at": "2019-06-18T05:07:22Z",
   "username": "string"
 }
@@ -6147,10 +6152,10 @@ or is the same user.
   "company_id": 1,
   "created_at": "2019-06-18T05:07:22Z",
   "deleted_at": "2019-06-18T05:07:22Z",
-  "email": "tanaka.suzuki@aukai.dev",
+  "email": "taro.suzuki@aukai.dev",
   "id": 0,
   "language": "ja",
-  "name": "Tanaka Suzuki",
+  "name": "Taro Suzuki",
   "updated_at": "2019-06-18T05:07:22Z",
   "username": "string"
 }
@@ -6172,10 +6177,10 @@ or is the same user.
   "company_id": 1,
   "created_at": "2019-06-18T05:07:22Z",
   "deleted_at": "2019-06-18T05:07:22Z",
-  "email": "tanaka.suzuki@aukai.dev",
+  "email": "taro.suzuki@aukai.dev",
   "id": 0,
   "language": "ja",
-  "name": "Tanaka Suzuki",
+  "name": "Taro Suzuki",
   "updated_at": "2019-06-18T05:07:22Z",
   "username": "string"
 }
@@ -6417,10 +6422,10 @@ Provides information about the authenticated user
   "company_id": 1,
   "created_at": "2019-06-18T05:07:22Z",
   "deleted_at": "2019-06-18T05:07:22Z",
-  "email": "tanaka.suzuki@aukai.dev",
+  "email": "taro.suzuki@aukai.dev",
   "id": 0,
   "language": "ja",
-  "name": "Tanaka Suzuki",
+  "name": "Taro Suzuki",
   "updated_at": "2019-06-18T05:07:22Z",
   "username": "string"
 }
@@ -6546,7 +6551,7 @@ Provides list of roles for the authenticated user
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
     "id": 0,
-    "name": "string",
+    "name": "user",
     "updated_at": "2019-06-18T05:07:22Z",
     "users": [
       {
@@ -6554,10 +6559,10 @@ Provides list of roles for the authenticated user
         "company_id": 1,
         "created_at": "2019-06-18T05:07:22Z",
         "deleted_at": "2019-06-18T05:07:22Z",
-        "email": "tanaka.suzuki@aukai.dev",
+        "email": "taro.suzuki@aukai.dev",
         "id": 0,
         "language": "ja",
-        "name": "Tanaka Suzuki",
+        "name": "Taro Suzuki",
         "updated_at": "2019-06-18T05:07:22Z",
         "username": "string"
       }
@@ -6735,10 +6740,10 @@ Delete a User by ID
   "company_id": 1,
   "created_at": "2019-06-18T05:07:22Z",
   "deleted_at": "2019-06-18T05:07:22Z",
-  "email": "tanaka.suzuki@aukai.dev",
+  "email": "taro.suzuki@aukai.dev",
   "id": 0,
   "language": "ja",
-  "name": "Tanaka Suzuki",
+  "name": "Taro Suzuki",
   "updated_at": "2019-06-18T05:07:22Z",
   "username": "string"
 }
@@ -6867,10 +6872,10 @@ Lists Users
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   }
@@ -6906,7 +6911,7 @@ To perform this operation, you must be authenticated by means of one of the foll
 ApiKeyAuth
 </aside>
 
-<h1 id="aukai-core-api-system">system</h1>
+<h1 id="aukai-core-api-system">System</h1>
 
 ## Get Version
 
@@ -7032,7 +7037,7 @@ also be included.
 This operation does not require authentication
 </aside>
 
-<h1 id="aukai-core-api-warehouse-attr">warehouse-attr</h1>
+<h1 id="aukai-core-api-warehouse">Warehouse</h1>
 
 ## List WarehouseAttr
 
@@ -7774,8 +7779,6 @@ To perform this operation, you must be authenticated by means of one of the foll
 ApiKeyAuth
 </aside>
 
-<h1 id="aukai-core-api-warehouse">warehouse</h1>
-
 ## List Warehouses
 
 <a id="opIdget-companies"></a>
@@ -7949,10 +7952,10 @@ Lists Warehouses
       "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "tanaka.suzuki@aukai.dev",
+      "email": "taro.suzuki@aukai.dev",
       "id": 0,
       "language": "ja",
-      "name": "Tanaka Suzuki",
+      "name": "Taro Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -7986,10 +7989,10 @@ Lists Warehouses
       "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "tanaka.suzuki@aukai.dev",
+      "email": "taro.suzuki@aukai.dev",
       "id": 0,
       "language": "ja",
-      "name": "Tanaka Suzuki",
+      "name": "Taro Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -8262,10 +8265,10 @@ Create a Warehouse
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -8299,10 +8302,10 @@ Create a Warehouse
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -8385,10 +8388,10 @@ Create a Warehouse
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -8422,10 +8425,10 @@ Create a Warehouse
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -8616,10 +8619,10 @@ Retrieve a Warehouse
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -8653,10 +8656,10 @@ Retrieve a Warehouse
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -8851,10 +8854,10 @@ Update attributes of a Warehouse
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -8888,10 +8891,10 @@ Update attributes of a Warehouse
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -8975,10 +8978,10 @@ Update attributes of a Warehouse
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -9012,10 +9015,10 @@ Update attributes of a Warehouse
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -9212,10 +9215,10 @@ Delete a Warehouse by ID
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -9249,10 +9252,10 @@ Delete a Warehouse by ID
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -9450,10 +9453,10 @@ Provides a list of Warehouse objects ordered as a tree
       "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "tanaka.suzuki@aukai.dev",
+      "email": "taro.suzuki@aukai.dev",
       "id": 0,
       "language": "ja",
-      "name": "Tanaka Suzuki",
+      "name": "Taro Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -9487,10 +9490,10 @@ Provides a list of Warehouse objects ordered as a tree
       "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "tanaka.suzuki@aukai.dev",
+      "email": "taro.suzuki@aukai.dev",
       "id": 0,
       "language": "ja",
-      "name": "Tanaka Suzuki",
+      "name": "Taro Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -9554,10 +9557,10 @@ ApiKeyAuth
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   }
@@ -9677,7 +9680,7 @@ ApiKeyAuth
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
       "id": 0,
-      "name": "string",
+      "name": "user",
       "updated_at": "2019-06-18T05:07:22Z",
       "users": [
         {
@@ -9685,10 +9688,10 @@ ApiKeyAuth
           "company_id": 1,
           "created_at": "2019-06-18T05:07:22Z",
           "deleted_at": "2019-06-18T05:07:22Z",
-          "email": "tanaka.suzuki@aukai.dev",
+          "email": "taro.suzuki@aukai.dev",
           "id": 0,
           "language": "ja",
-          "name": "Tanaka Suzuki",
+          "name": "Taro Suzuki",
           "updated_at": "2019-06-18T05:07:22Z",
           "username": "string"
         }
@@ -9868,10 +9871,10 @@ ApiKeyAuth
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -9901,10 +9904,10 @@ ApiKeyAuth
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -9945,10 +9948,10 @@ ApiKeyAuth
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -9973,10 +9976,10 @@ ApiKeyAuth
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -10025,10 +10028,10 @@ ApiKeyAuth
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -10115,7 +10118,7 @@ ApiKeyAuth
   "created_at": "2019-06-18T05:07:22Z",
   "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
-  "name": "string",
+  "name": "user",
   "updated_at": "2019-06-18T05:07:22Z",
   "users": [
     {
@@ -10123,10 +10126,10 @@ ApiKeyAuth
       "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "tanaka.suzuki@aukai.dev",
+      "email": "taro.suzuki@aukai.dev",
       "id": 0,
       "language": "ja",
-      "name": "Tanaka Suzuki",
+      "name": "Taro Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     }
@@ -10156,10 +10159,10 @@ ApiKeyAuth
   "company_id": 1,
   "created_at": "2019-06-18T05:07:22Z",
   "deleted_at": "2019-06-18T05:07:22Z",
-  "email": "tanaka.suzuki@aukai.dev",
+  "email": "taro.suzuki@aukai.dev",
   "id": 0,
   "language": "ja",
-  "name": "Tanaka Suzuki",
+  "name": "Taro Suzuki",
   "updated_at": "2019-06-18T05:07:22Z",
   "username": "string"
 }
@@ -10250,10 +10253,10 @@ ApiKeyAuth
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -10287,10 +10290,10 @@ ApiKeyAuth
     "company_id": 1,
     "created_at": "2019-06-18T05:07:22Z",
     "deleted_at": "2019-06-18T05:07:22Z",
-    "email": "tanaka.suzuki@aukai.dev",
+    "email": "taro.suzuki@aukai.dev",
     "id": 0,
     "language": "ja",
-    "name": "Tanaka Suzuki",
+    "name": "Taro Suzuki",
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
@@ -10428,10 +10431,10 @@ ApiKeyAuth
       "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "tanaka.suzuki@aukai.dev",
+      "email": "taro.suzuki@aukai.dev",
       "id": 0,
       "language": "ja",
-      "name": "Tanaka Suzuki",
+      "name": "Taro Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -10465,10 +10468,10 @@ ApiKeyAuth
       "company_id": 1,
       "created_at": "2019-06-18T05:07:22Z",
       "deleted_at": "2019-06-18T05:07:22Z",
-      "email": "tanaka.suzuki@aukai.dev",
+      "email": "taro.suzuki@aukai.dev",
       "id": 0,
       "language": "ja",
-      "name": "Tanaka Suzuki",
+      "name": "Taro Suzuki",
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
@@ -10619,4 +10622,6 @@ ApiKeyAuth
 |ref|string|true|none|Ref is the key used to retrieve the file from our object store|
 |updated_at|string|false|none|none|
 |url|string|false|none|URL for external systems to use to access the file|
+
+undefined
 

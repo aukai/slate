@@ -1374,9 +1374,9 @@ Lists Companies
     },
     "deleted_at": "2019-06-18T05:07:22Z",
     "id": 0,
-    "name_en": "string",
-    "name_ja": "string",
-    "phone": "string",
+    "name_en": "Mitsubishi Corporation",
+    "name_ja": "三菱商事",
+    "phone": "+81 03-4560-3232",
     "photos": [
       {
         "attribution": "string",
@@ -1405,7 +1405,7 @@ Lists Companies
       "updated_at": "2019-06-18T05:07:22Z",
       "username": "string"
     },
-    "url": "string"
+    "url": "https://mitsubishicorp.com/"
   }
 ]
 ```
@@ -1475,7 +1475,7 @@ Status Code **200**
 |»» warehouse_id|integer|false|none|WarehouseID associates this Photo with a Warehouse|
 |» updated_at|string|false|none|none|
 |» updated_by|[model.User](#schemamodel.user)|false|none|none|
-|» url|string|false|none|Website or other reference webpage for the company required: true example: https://aukai.io|
+|» url|string|false|none|Website or other reference webpage for the company required: true|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -1650,9 +1650,9 @@ Create a Company
   },
   "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
-  "name_en": "string",
-  "name_ja": "string",
-  "phone": "string",
+  "name_en": "Mitsubishi Corporation",
+  "name_ja": "三菱商事",
+  "phone": "+81 03-4560-3232",
   "photos": [
     {
       "attribution": "string",
@@ -1681,7 +1681,7 @@ Create a Company
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "url": "string"
+  "url": "https://mitsubishicorp.com/"
 }
 ```
 
@@ -1754,9 +1754,9 @@ Create a Company
   },
   "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
-  "name_en": "string",
-  "name_ja": "string",
-  "phone": "string",
+  "name_en": "Mitsubishi Corporation",
+  "name_ja": "三菱商事",
+  "phone": "+81 03-4560-3232",
   "photos": [
     {
       "attribution": "string",
@@ -1785,7 +1785,7 @@ Create a Company
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "url": "string"
+  "url": "https://mitsubishicorp.com/"
 }
 ```
 
@@ -1964,9 +1964,9 @@ Retrieve a Company
   },
   "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
-  "name_en": "string",
-  "name_ja": "string",
-  "phone": "string",
+  "name_en": "Mitsubishi Corporation",
+  "name_ja": "三菱商事",
+  "phone": "+81 03-4560-3232",
   "photos": [
     {
       "attribution": "string",
@@ -1995,7 +1995,7 @@ Retrieve a Company
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "url": "string"
+  "url": "https://mitsubishicorp.com/"
 }
 ```
 
@@ -2178,9 +2178,9 @@ Update attributes of a Company
   },
   "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
-  "name_en": "string",
-  "name_ja": "string",
-  "phone": "string",
+  "name_en": "Mitsubishi Corporation",
+  "name_ja": "三菱商事",
+  "phone": "+81 03-4560-3232",
   "photos": [
     {
       "attribution": "string",
@@ -2209,7 +2209,7 @@ Update attributes of a Company
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "url": "string"
+  "url": "https://mitsubishicorp.com/"
 }
 ```
 
@@ -2283,9 +2283,9 @@ Update attributes of a Company
   },
   "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
-  "name_en": "string",
-  "name_ja": "string",
-  "phone": "string",
+  "name_en": "Mitsubishi Corporation",
+  "name_ja": "三菱商事",
+  "phone": "+81 03-4560-3232",
   "photos": [
     {
       "attribution": "string",
@@ -2314,7 +2314,7 @@ Update attributes of a Company
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "url": "string"
+  "url": "https://mitsubishicorp.com/"
 }
 ```
 
@@ -2499,9 +2499,9 @@ Delete a Company by ID
   },
   "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
-  "name_en": "string",
-  "name_ja": "string",
-  "phone": "string",
+  "name_en": "Mitsubishi Corporation",
+  "name_ja": "三菱商事",
+  "phone": "+81 03-4560-3232",
   "photos": [
     {
       "attribution": "string",
@@ -2530,7 +2530,7 @@ Delete a Company by ID
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "url": "string"
+  "url": "https://mitsubishicorp.com/"
 }
 ```
 
@@ -3318,6 +3318,17 @@ Status Code **200**
 |» updated_at|string|false|none|none|
 |» updated_by|[model.User](#schemamodel.user)|false|none|none|
 |» warehouse_id|integer|false|none|The Warehouse side of the network association.|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|status|requested|
+|status|proposed|
+|status|approved|
+|status|rejected|
+|status|active|
+|status|inactive|
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -4459,10 +4470,448 @@ AutoComplete an address in the specified language
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
 |200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Google AutoComplete response|None|
-|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|invalid requests|string|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|invalid request|string|
 |500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|unable to fullfil request|string|
 
 <h3 id="address-autocomplete-responseschema">Response Schema</h3>
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
+</aside>
+
+## PlaceDetails
+
+> Code samples
+
+```http
+GET http://aukai.io/place/detail/ HTTP/1.1
+Host: aukai.io
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X GET http://aukai.io/place/detail/ \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://aukai.io/place/detail/", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/place/detail/',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json'
+}
+
+r = requests.get('http://aukai.io/place/detail/', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json'
+}
+
+result = RestClient.get 'http://aukai.io/place/detail/',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`GET /place/detail/`
+
+Retrieve information about the business and location of a
+PlaceRef. Google ToS doesn't permit caching place details, so
+store the PlaceRef then use this method whenever you need to
+get the details about the Place.
+
+> Body parameter
+
+```json
+{
+  "lang": "string",
+  "place_ref": "string"
+}
+```
+
+<h3 id="placedetails-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[place.PlaceDetailsReq](#schemaplace.placedetailsreq)|true|place reference and language|
+
+> Example responses
+
+> 400 Response
+
+```json
+"string"
+```
+
+<h3 id="placedetails-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Google Place details|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|invalid request|string|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|unable to fullfil request|string|
+
+<h3 id="placedetails-responseschema">Response Schema</h3>
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+None
+</aside>
+
+## Geocode Place
+
+> Code samples
+
+```http
+GET http://aukai.io/place/geocode HTTP/1.1
+Host: aukai.io
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X GET http://aukai.io/place/geocode \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer JWT'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer JWT"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://aukai.io/place/geocode", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'Authorization':'Bearer JWT'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/place/geocode',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer JWT'
+}
+
+r = requests.get('http://aukai.io/place/geocode', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer JWT'
+}
+
+result = RestClient.get 'http://aukai.io/place/geocode',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`GET /place/geocode`
+
+Provides the GeoCode (GPS coordinates) of a Google Place from
+its PlaceRef. Use AutoComplete to search for an Address then
+use this method to get GeoCode when necessary.
+
+> Body parameter
+
+```json
+{
+  "lang": "string",
+  "place_ref": "string"
+}
+```
+
+<h3 id="geocode-place-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[place.GeoCodeReq](#schemaplace.geocodereq)|true|request details|
+
+> Example responses
+
+> 400 Response
+
+```json
+"string"
+```
+
+<h3 id="geocode-place-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Google GeoCode response|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|invalid request|string|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|unable to fullfil request|string|
+
+<h3 id="geocode-place-responseschema">Response Schema</h3>
+
+<aside class="warning">
+To perform this operation, you must be authenticated by means of one of the following methods:
+ApiKeyAuth
+</aside>
+
+## Photos of Place
+
+> Code samples
+
+```http
+GET http://aukai.io/place/photo HTTP/1.1
+Host: aukai.io
+Content-Type: application/json
+Accept: application/json
+
+```
+
+```shell
+# You can also use wget
+curl -X GET http://aukai.io/place/photo \
+  -H 'Content-Type: application/json' \
+  -H 'Accept: application/json' \
+  -H 'Authorization: Bearer JWT'
+
+```
+
+```go
+package main
+
+import (
+       "bytes"
+       "net/http"
+)
+
+func main() {
+
+    headers := map[string][]string{
+        "Content-Type": []string{"application/json"},
+        "Accept": []string{"application/json"},
+        "Authorization": []string{"Bearer JWT"},
+        
+    }
+
+    data := bytes.NewBuffer([]byte{jsonReq})
+    req, err := http.NewRequest("GET", "http://aukai.io/place/photo", data)
+    req.Header = headers
+
+    client := &http.Client{}
+    resp, err := client.Do(req)
+    // ...
+}
+
+```
+
+```javascript
+var headers = {
+  'Content-Type':'application/json',
+  'Accept':'application/json',
+  'Authorization':'Bearer JWT'
+
+};
+
+$.ajax({
+  url: 'http://aukai.io/place/photo',
+  method: 'get',
+
+  headers: headers,
+  success: function(data) {
+    console.log(JSON.stringify(data));
+  }
+})
+
+```
+
+```python
+import requests
+headers = {
+  'Content-Type': 'application/json',
+  'Accept': 'application/json',
+  'Authorization': 'Bearer JWT'
+}
+
+r = requests.get('http://aukai.io/place/photo', params={
+
+}, headers = headers)
+
+print r.json()
+
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+headers = {
+  'Content-Type' => 'application/json',
+  'Accept' => 'application/json',
+  'Authorization' => 'Bearer JWT'
+}
+
+result = RestClient.get 'http://aukai.io/place/photo',
+  params: {
+  }, headers: headers
+
+p JSON.parse(result)
+
+```
+
+`GET /place/photo`
+
+Provides public photos associated with a Google Place from
+its PlaceRef. Use AutoComplete to search for an Address then
+use this method to get Photos when necessary.
+
+> Body parameter
+
+```json
+{
+  "max_height": 0,
+  "max_width": 0,
+  "photo_ref": "string"
+}
+```
+
+<h3 id="photos-of-place-parameters">Parameters</h3>
+
+|Name|In|Type|Required|Description|
+|---|---|---|---|---|
+|body|body|[place.PhotoReq](#schemaplace.photoreq)|true|request details|
+
+> Example responses
+
+> 400 Response
+
+```json
+"string"
+```
+
+<h3 id="photos-of-place-responses">Responses</h3>
+
+|Status|Meaning|Description|Schema|
+|---|---|---|---|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Google Photos response|None|
+|400|[Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1)|invalid request|string|
+|500|[Internal Server Error](https://tools.ietf.org/html/rfc7231#section-6.6.1)|unable to fullfil request|string|
+
+<h3 id="photos-of-place-responseschema">Response Schema</h3>
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
@@ -5553,6 +6002,7 @@ Retrieve a User, by one of its paramters: id, username, or email
 
 |Name|In|Type|Required|Description|
 |---|---|---|---|---|
+|id|path|integer|true|User ID|
 |body|body|[api.UserQuery](#schemaapi.userquery)|true|user query|
 
 > Example responses
@@ -9427,9 +9877,9 @@ ApiKeyAuth
   },
   "deleted_at": "2019-06-18T05:07:22Z",
   "id": 0,
-  "name_en": "string",
-  "name_ja": "string",
-  "phone": "string",
+  "name_en": "Mitsubishi Corporation",
+  "name_ja": "三菱商事",
+  "phone": "+81 03-4560-3232",
   "photos": [
     {
       "attribution": "string",
@@ -9458,7 +9908,7 @@ ApiKeyAuth
     "updated_at": "2019-06-18T05:07:22Z",
     "username": "string"
   },
-  "url": "string"
+  "url": "https://mitsubishicorp.com/"
 }
 
 ```
@@ -9479,7 +9929,7 @@ ApiKeyAuth
 |photos|[[model.Photo](#schemamodel.photo)]|false|none|photos associated with the company, e.g., logos and buildings required: false|
 |updated_at|string|false|none|none|
 |updated_by|[model.User](#schemamodel.user)|false|none|none|
-|url|string|false|none|Website or other reference webpage for the company required: true example: https://aukai.io|
+|url|string|false|none|Website or other reference webpage for the company required: true|
 
 <h2 id="tocSmodel.networkassoc">model.NetworkAssoc</h2>
 
@@ -9550,6 +10000,17 @@ ApiKeyAuth
 |updated_at|string|false|none|none|
 |updated_by|[model.User](#schemamodel.user)|false|none|none|
 |warehouse_id|integer|false|none|The Warehouse side of the network association.|
+
+#### Enumerated Values
+
+|Property|Value|
+|---|---|
+|status|requested|
+|status|proposed|
+|status|approved|
+|status|rejected|
+|status|active|
+|status|inactive|
 
 <h2 id="tocSmodel.networkevent">model.NetworkEvent</h2>
 
@@ -10047,6 +10508,65 @@ ApiKeyAuth
 |address|string|true|none|none|
 |lang|string|false|none|none|
 |type|string|false|none|none|
+
+<h2 id="tocSplace.geocodereq">place.GeoCodeReq</h2>
+
+<a id="schemaplace.geocodereq"></a>
+
+```json
+{
+  "lang": "string",
+  "place_ref": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|lang|string|false|none|none|
+|place_ref|string|true|none|none|
+
+<h2 id="tocSplace.photoreq">place.PhotoReq</h2>
+
+<a id="schemaplace.photoreq"></a>
+
+```json
+{
+  "max_height": 0,
+  "max_width": 0,
+  "photo_ref": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|max_height|integer|true|none|none|
+|max_width|integer|true|none|none|
+|photo_ref|string|true|none|none|
+
+<h2 id="tocSplace.placedetailsreq">place.PlaceDetailsReq</h2>
+
+<a id="schemaplace.placedetailsreq"></a>
+
+```json
+{
+  "lang": "string",
+  "place_ref": "string"
+}
+
+```
+
+### Properties
+
+|Name|Type|Required|Restrictions|Description|
+|---|---|---|---|---|
+|lang|string|false|none|none|
+|place_ref|string|true|none|none|
 
 <h2 id="tocSresource.notfounderror">resource.NotFoundError</h2>
 
